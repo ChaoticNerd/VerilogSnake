@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer: Natasha Kho
+// Engineer: Natasha Kho, Hanna Estrada, Justin Narciso
 // 
 // Create Date: 04/04/2025 04:16:40 PM
 // Module Name: vga_sync
@@ -59,6 +59,7 @@ module vga_sync(
             vsync_reg <= vsync_next;
             hsync_reg <= hsync_next;
         end
+        
     // mod-2 circuit to generate 25MHz enable tick (enables/disables mod2_next?)
         assign mod2_next = ~mod2_reg;
         assign pixel_tick = mod2_reg;
@@ -78,7 +79,7 @@ module vga_sync(
             else
                 hori_count_next = hori_count_reg + 1;
         else
-            hori_count_next = hori_count_reg + 1;   
+            hori_count_next = hori_count_reg;   
             
    // next-state logic, mod-525 vsync counter
    always @*

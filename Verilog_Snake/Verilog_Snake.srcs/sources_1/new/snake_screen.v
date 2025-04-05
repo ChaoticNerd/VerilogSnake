@@ -25,14 +25,14 @@ module snake_screen(
     localparam MAX_WIDTH  = 480;
     
     //---------------------------------- BORDERS -------------------------------------
-    localparam LEFT_BORDER_L  = MAX_HEIGHT;
-    localparam LEFT_BORDER_R  = MAX_HEIGHT - 2;
+    localparam LEFT_BORDER_L  = MAX_WIDTH;
+    localparam LEFT_BORDER_R  = MAX_WIDTH - 2;
     
     localparam RIGHT_BORDER_L = 2;
     localparam RIGHT_BORDER_R = 0;
     
-    localparam TOP_BORDER_T   = MAX_WIDTH;
-    localparam TOP_BORDER_B   = MAX_WIDTH - 2;
+    localparam TOP_BORDER_T   = MAX_HEIGHT;
+    localparam TOP_BORDER_B   = MAX_HEIGHT - 2;
     
     localparam BOT_BORDER_T   = 2;
     localparam BOT_BORDER_B   = 0;
