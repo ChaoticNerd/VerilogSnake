@@ -18,8 +18,17 @@ module snake_screen(
     output reg [2:0] screen_RGB     // Setting colors to specific components on screen
     );
     
-    wire border_on;
-    wire [2:0] border_RGB;
+    wire border_on, sq_fruit_on, rd_fruit_on;
+    wire [2:0] border_RGB, fruit_rgb;
+    
+    localparam FRUIT_SIZE = 4;
+    
+    // Want fruit in middle of screen ~239 - ~339
+    localparam FRUIT_L = 339;                       // Left part of fruit
+    localparam FRUIT_R = FRUIT_L + FRUIT_SIZE - 1;  // Right part of fruit (-1 since 339 is the first pixel)
+    
+    localparam FRUIT_T = 239;                       // Top of Fruit
+    localparam FRUIT_B = FRUIT_T + FRUIT_SIZE -1;   // Bot of fruit (-1 since it starts at 239)
     
     localparam MAX_HEIGHT = 640;    // CAN CHANGE THIS, would need to change x_val and y_val
     localparam MAX_WIDTH  = 480;
@@ -46,7 +55,10 @@ module snake_screen(
     //---------------------------------- SNAKE ---------------------------------------
     
     //---------------------------------- FRUIT ---------------------------------------
-    
+    // Fruit is 4x4 
+    assign sq_fruit_on = (FRUIT_L <= x_val) && (x_val <= FRUIT_R)&&
+                         (FRUIT_T <= y_val) && (y_val <= FRUIT_B);
+    assign fruit_rgb = 3'b100; // RED
     //------------------------------- RGB MULTIPLEXING ----------------------------------
     always @*
         if(~display)
@@ -54,7 +66,9 @@ module snake_screen(
         else
             if(border_on)
                 screen_RGB = border_RGB;
-            // PUT OTHER STUFF LIKE SNAKE AND FRUIT HERE TOO
+            else if(sq_fruit_on)
+                screen_RGB = fruit_rgb;
+            // PUT OTHER STUFF LIKE SNAKE HERE TOO
             else
                 screen_RGB = 3'b010; // GREEN      
 endmodule
