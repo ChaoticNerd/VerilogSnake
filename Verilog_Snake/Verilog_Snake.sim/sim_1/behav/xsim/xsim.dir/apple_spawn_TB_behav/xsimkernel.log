@@ -1,0 +1,7 @@
+Running: xsim.dir/apple_spawn_TB_behav/xsimk.exe -simmode gui -wdb apple_spawn_TB_behav.wdb -simrunnum 0 -socket 64498
+Design successfully loaded
+Design Loading Memory Usage: 9236 KB (Peak: 9236 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 9828 KB (Peak: 9828 KB)
+Simulation CPU Usage: 46 ms
