@@ -3,7 +3,6 @@
 // Engineer: Natasha Kho, Hanna Estrada, Justin Narciso
 // 
 // Create Date: 04/04/2025 04:16:40 PM
-// Design Name: VGA
 // Module Name: vga_sync
 // Project Name: Verilog Snake
 // Target Devices: NexysA7-100T
