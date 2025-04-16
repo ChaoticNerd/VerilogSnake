@@ -2,17 +2,22 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Mon Apr 14 18:16:34 2025
-# Process ID: 28948
-# Current directory: C:/Users/hanna/OneDrive/Documents/GitHub/VerilogSnake/Verilog_Snake
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent28288 C:\Users\hanna\OneDrive\Documents\GitHub\VerilogSnake\Verilog_Snake\Verilog_Snake.xpr
-# Log file: C:/Users/hanna/OneDrive/Documents/GitHub/VerilogSnake/Verilog_Snake/vivado.log
-# Journal file: C:/Users/hanna/OneDrive/Documents/GitHub/VerilogSnake/Verilog_Snake\vivado.jou
-# Running On: Ark, OS: Windows, CPU Frequency: 2995 MHz, CPU Physical cores: 2, Host memory: 8215 MB
+# Start of session at: Wed Apr 16 15:39:30 2025
+# Process ID: 55508
+# Current directory: C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent131220 C:\Users\mavri\Documents\GitHub\VerilogSnake\Verilog_Snake\Verilog_Snake.xpr
+# Log file: C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/vivado.log
+# Journal file: C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake\vivado.jou
+# Running On: Neptune, OS: Windows, CPU Frequency: 3194 MHz, CPU Physical cores: 16, Host memory: 16312 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/hanna/OneDrive/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.xpr
+open_project C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.xpr
 update_compile_order -fileset sources_1
-close [ open C:/Users/hanna/OneDrive/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v w ]
-add_files C:/Users/hanna/OneDrive/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v
+add_files -norecurse {C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/Font_test_top.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_fruit_animate.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_screen.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/Font_ROM.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/Font_test_gen.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_decoder.v C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/apple_spawn.v}
 update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v
+update_compile_order -fileset sim_1
+launch_simulation
+source apple_spawn_TB.tcl
+close_sim
