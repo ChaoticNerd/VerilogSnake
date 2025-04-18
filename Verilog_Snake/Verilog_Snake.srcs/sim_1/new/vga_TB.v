@@ -15,24 +15,28 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module vga_TB(
-    input wire clk, reset,
-    input wire [2:0] sw,
-    output wire hsync, vsync,
-    output wire [2:0] rgb
-    );
+module vga_TB();
+    reg clk_TB, reset_TB;
+    wire hsync_TB, vsync_TB, vid, p_tick;
+    wire [9:0] ycnt;
+    wire [9:0] xcnt;
     
-    reg [2:0] rgb_reg;
-    wire video;
+    vga_sync uut(.clk(clk_TB), .reset(reset_TB), .hsync(hsync_TB), 
+                 .vsync(vsync_TB), .video(vid), .p_tick(p_tick), 
+                 .pixel_y(ycnt), .pixel_x(xcnt));
     
-    vga_sync uut(.clk(clk), .reset(reset), .hori_sync(hsync), .vert_sync(vsync), 
-                 .vid_on(video), .p_tick(), .pixel_x(), .pixel_y());
-                 
-    always @(posedge clk, posedge reset)begin
-        if(reset)
-            rgb_reg <= 0;
-        else
-            rgb_reg <= sw;
+    always #3 clk_TB <= ~clk_TB; // one cycle is 20
+    
+    localparam period = 25;
+    
+    initial begin
+        clk_TB = 0;
+        reset_TB = 1;
+        #1;
+        reset_TB = 0;
+        while(vsync_TB == 0)begin
+           #period; 
+        end
+
     end
-    assign rgb = (video)? rgb_reg : 3'b0;
 endmodule

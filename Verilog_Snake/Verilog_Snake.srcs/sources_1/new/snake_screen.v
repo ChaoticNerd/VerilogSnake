@@ -40,8 +40,8 @@ module snake_screen(
     localparam RIGHT_BORDER_L = 2;
     localparam RIGHT_BORDER_R = 0;
     
-    localparam TOP_BORDER_T   = MAX_HEIGHT;
-    localparam TOP_BORDER_B   = MAX_HEIGHT - 2;
+    localparam TOP_BORDER_T   = MAX_HEIGHT - 16; // 16 is space for text
+    localparam TOP_BORDER_B   = MAX_HEIGHT - 2 - 16;
     
     localparam BOT_BORDER_T   = 2;
     localparam BOT_BORDER_B   = 0;

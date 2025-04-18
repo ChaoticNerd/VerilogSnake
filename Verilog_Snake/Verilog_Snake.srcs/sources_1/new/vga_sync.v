@@ -13,102 +13,104 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // :::WIP::: REVIEW TEXTBOOK FOR BETTER UNDERSTANDING :::WIP:::
-module vga_sync(
+// Listing 13.1
+module vga_sync
+   (
     input wire clk, reset,
-    output wire hori_sync, vert_sync, vid_on, p_tick,
+    output wire hsync, vsync, video, p_tick,
     output wire [9:0] pixel_x, pixel_y
-    );
-    // 640 by 480 screen (CHANGE IF WANT DIFF SCREEN SIZE)
-    localparam hori_display = 640; // Horizontal Display Area 
-    localparam hori_front   = 48;  // Left border           (given by textbook)
-    localparam hori_back    = 16;  // Right border          (given by textbook)
-    localparam hori_retrace = 96;  // Horizontal Retrace    (given by textbook)
-    
-    localparam vert_display = 480; // Vertical Dispaly Area
-    localparam vert_front   = 10;
-    localparam vert_back    = 33;
-    localparam vert_retrace = 2;
-    
-    // mod-2 counter
-    reg mod2_reg;
-    wire mod2_next;
-    
-    // sync counters
-    reg [9:0] hori_count_reg, hori_count_next;
-    reg [9:0] vert_count_reg, vert_count_next;
-    
-    // output buffers
-    reg vsync_reg, hsync_reg;
-    wire vsync_next, hsync_next;
-    
-    // status signal (check if vert/hori scans are done
-    wire h_end, v_end, pixel_tick;
-    
-    // body
-    // registers :::LOOK OVER THIS:::
-    always @(posedge clk, posedge reset)
-        if(reset) begin // these are default values
+   );
+
+   // constant declaration
+   // VGA 640-by-480 sync parameters
+   localparam HD = 640; // horizontal display area
+   localparam HF = 48 ; // h. front (left) border
+   localparam HB = 16 ; // h. back (right) border
+   localparam HR = 96 ; // h. retrace
+   localparam VD = 480; // vertical display area
+   localparam VF = 10;  // v. front (top) border
+   localparam VB = 33;  // v. back (bottom) border
+   localparam VR = 2;   // v. retrace
+
+   // mod-2 counter
+   reg mod2_reg;
+   wire mod2_next;
+   // sync counters
+   reg [9:0] h_count_reg, h_count_next;
+   reg [9:0] v_count_reg, v_count_next;
+   // output buffer
+   reg v_sync_reg, h_sync_reg;
+   wire v_sync_next, h_sync_next;
+   // status signal
+   wire h_end, v_end, pixel_tick;
+
+   // body
+   // registers
+   always @(posedge clk, posedge reset)
+      if (reset)
+         begin
             mod2_reg <= 1'b0;
-            vert_count_reg <= 0;
-            hori_count_reg <= 0;
-            vsync_reg <= 1'b0;
-            hsync_reg <= 1'b0;
-        end else begin
+            v_count_reg <= 0;
+            h_count_reg <= 0;
+            v_sync_reg <= 1'b0;
+            h_sync_reg <= 1'b0;
+         end
+      else
+         begin
             mod2_reg <= mod2_next;
-            vert_count_reg <= vert_count_next;
-            hori_count_reg <= hori_count_next;
-            vsync_reg <= vsync_next;
-            hsync_reg <= hsync_next;
-        end
-        
-    // mod-2 circuit to generate 25MHz enable tick (enables/disables mod2_next?)
-        assign mod2_next = ~mod2_reg;
-        assign pixel_tick = mod2_reg;
-        
-   // Status signals (check if done)
-   // end = 799
-   assign h_end = (hori_count_reg == (hori_display + hori_front + hori_back + hori_retrace -1));
-   
-   // end = 524
-   assign v_end = (vert_count_reg == (vert_display + vert_front + vert_back + vert_retrace -1));
-   
-   // next-state logic, mod-800 hsync counter
+            v_count_reg <= v_count_next;
+            h_count_reg <= h_count_next;
+            v_sync_reg <= v_sync_next;
+            h_sync_reg <= h_sync_next;
+         end
+
+   // mod-2 circuit to generate 25 MHz enable tick
+   assign mod2_next = ~mod2_reg;
+   assign pixel_tick = mod2_reg;
+
+   // status signals
+   // end of horizontal counter (799)
+   assign h_end = (h_count_reg==(HD+HF+HB+HR-1));
+   // end of vertical counter (524)
+   assign v_end = (v_count_reg==(VD+VF+VB+VR-1));
+
+   // next-state logic of mod-800 horizontal sync counter
    always @*
-        if(pixel_tick) // 25 MHz pulse
-            if(h_end)
-                hori_count_next = 0;
-            else
-                hori_count_next = hori_count_reg + 1;
-        else
-            hori_count_next = hori_count_reg;   
-            
-   // next-state logic, mod-525 vsync counter
+      if (pixel_tick)  // 25 MHz pulse
+         if (h_end)
+            h_count_next = 0;
+         else
+            h_count_next = h_count_reg + 1;
+      else
+         h_count_next = h_count_reg;
+
+   // next-state logic of mod-525 vertical sync counter
    always @*
-        if(pixel_tick & h_end)
-            if(v_end)
-                vert_count_next = 0;
-            else
-                vert_count_next = vert_count_reg + 1;
-        else
-            vert_count_next = vert_count_reg;
-            
-            
-   // Hsync and vsync buffered to avoid glitches
-   // hsync_next between 656 and 751
-   assign hsync_next = (hori_count_reg >= (hori_display + hori_back) &&
-                            hori_count_reg <= (hori_display + hori_back + hori_retrace -1));
-   
-   // vsync_next between 490 and 491
-   assign vsync_next = (vert_count_reg >= (vert_display + vert_back) &&
-                        vert_count_reg <= (vert_display + vert_back + vert_retrace - 1));
-                        
-   // if the scan isn't done (all the way to the edge), then video won't turn on                     
-   assign video_on = (hori_count_reg < hori_display) && (vert_count_reg < vert_display);  
-   
-   // updates outputs
-   assign hsync = hsync_reg;
-   assign vsync = vsync_reg;
-   assign pixel_x = hori_count_reg;
-   assign pixel_y = vert_count_reg;
-   assign p_tick = pixel_tick;                       
+      if (pixel_tick & h_end)
+         if (v_end)
+            v_count_next = 0;
+         else
+            v_count_next = v_count_reg + 1;
+      else
+         v_count_next = v_count_reg;
+
+   // horizontal and vertical sync, buffered to avoid glitch
+   // h_sync_next asserted between 656 and 751
+   assign h_sync_next = (h_count_reg>=(HD+HB) &&
+                         h_count_reg<=(HD+HB+HR-1));
+   // vh_sync_next asserted between 490 and 491
+   assign v_sync_next = (v_count_reg>=(VD+VB) &&
+                         v_count_reg<=(VD+VB+VR-1));
+
+   // video on/off
+   assign video = (h_count_reg<HD) && (v_count_reg<VD);
+
+   // output
+   assign hsync = h_sync_reg;
+   assign vsync = v_sync_reg;
+   assign pixel_x = h_count_reg;
+   assign pixel_y = v_count_reg;
+   assign p_tick = pixel_tick;
+
 endmodule
+
