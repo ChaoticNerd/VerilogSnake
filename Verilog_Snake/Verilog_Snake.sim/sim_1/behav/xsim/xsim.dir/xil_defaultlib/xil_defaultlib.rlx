@@ -2,8 +2,6 @@
 2020.2
 Oct 14 2022
 05:20:55
-C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.sim/sim_1/behav/xsim/glbl.v,1744842323,verilog,,,,glbl,,,,,,,,
-C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/apple_spawn_TB.v,1744751750,verilog,,,,apple_spawn_TB,,,,,,,,
-C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v,1744937820,verilog,,,,vga_TB,,,,,,,,
-C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/apple_spawn.v,1744752157,verilog,,C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/apple_spawn_TB.v,,apple_spawn,,,,,,,,
-C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v,1744936319,verilog,,C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v,,vga_sync,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.sim/sim_1/behav/xsim/glbl.v,1744756337,verilog,,,,glbl,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v,1744996849,verilog,,,,vga_TB,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v,1744996849,verilog,,C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v,,vga_sync,,,,,,,,

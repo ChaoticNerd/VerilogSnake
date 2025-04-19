@@ -1,0 +1,655 @@
+/*
+
+Xilinx Vivado v2022.2 (64-bit) [Major: 2022, Minor: 2]
+SW Build: 3671981 on Fri Oct 14 05:00:03 MDT 2022
+IP Build: 3669848 on Fri Oct 14 08:30:02 MDT 2022
+
+Process ID (PID): 22492
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sat Apr 19 12:55:16 PDT 2025
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 22
+
+Screen size: 2560x1600
+Screen resolution (DPI): 150
+Available screens: 1
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=18
+Scale size: 27
+
+Java version: 	11.0.11 64-bit
+Java home: 	C:/Xilinx/Vivado/2022.2/tps/win64/jre11.0.11_9
+Java executable: 	C:/Xilinx/Vivado/2022.2/tps/win64/jre11.0.11_9/bin/java.exe
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.d3d=false, -Dsun.awt.nopixfmt=true, -Dsun.java2d.dpiaware=true, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	PugWomp
+User home directory: C:/Users/PugWomp
+User working directory: C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2022.2
+RDI_DATADIR: C:/Xilinx/Vivado/2022.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2022.2/bin
+
+Vivado preferences file: C:/Users/PugWomp/AppData/Roaming/Xilinx/Vivado/2022.2/vivado.xml
+Vivado preferences directory: C:/Users/PugWomp/AppData/Roaming/Xilinx/Vivado/2022.2/
+Vivado layouts directory: C:/Users/PugWomp/AppData/Roaming/Xilinx/Vivado/2022.2/data/layouts
+PlanAhead jar file: 	C:/Xilinx/Vivado/2022.2/lib/classes/planAhead.jar
+Vivado log file: 	C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/vivado.log
+Vivado journal file: 	C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/vivado.jou
+Engine tmp dir: 	C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/.Xil/Vivado-22492-Eorzea
+
+Xilinx Environment Variables
+----------------------------
+RDI_APPROOT: C:/Xilinx/Vivado/2022.2
+RDI_ARGS:  -gui_launcher_event rodinguilauncherevent33604 "C:\Users\PugWomp\Documents\Github\VerilogSnake\Verilog_Snake\Verilog_Snake.xpr"
+RDI_ARGS_FUNCTION: RDI_EXEC_DEFAULT
+RDI_BASEROOT: C:/Xilinx/Vivado
+RDI_BINDIR: C:/Xilinx/Vivado/2022.2/bin
+RDI_BINROOT: C:/Xilinx/Vivado/2022.2/bin
+RDI_BUILD: yes
+RDI_CHECK_PROG: True
+RDI_DATADIR: C:/Xilinx/Vivado/2022.2/data
+RDI_INSTALLROOT: C:/Xilinx
+RDI_INSTALLVER: 2022.2
+RDI_INSTALLVERSION: 2022.2
+RDI_ISE_PLATFORM: nt64
+RDI_JAVACEFROOT: C:/Xilinx/Vivado/2022.2/tps/win64/java-cef-95.0.4638.69
+RDI_JAVAFXROOT: C:/Xilinx/Vivado/2022.2/tps/win64/javafx-sdk-11.0.2
+RDI_JAVAROOT: C:/Xilinx/Vivado/2022.2/tps/win64/jre11.0.11_9
+RDI_JAVA_VERSION: 11.0.11_9
+RDI_LIBDIR: C:/Xilinx/Vivado/2022.2/lib/win64.o
+RDI_MINGW_LIB: C:/Xilinx/Vivado/2022.2\tps\mingw\6.2.0\win64.o\nt\bin;C:/Xilinx/Vivado/2022.2\tps\mingw\6.2.0\win64.o\nt\libexec\gcc\x86_64-w64-mingw32\6.2.0
+RDI_OPT_EXT: .o
+RDI_PLATFORM: win64
+RDI_PREPEND_PATH: C:/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2022.2/ids_lite/ISE/lib/nt64
+RDI_PROG: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/vivado.exe
+RDI_PROGNAME: vivado.exe
+RDI_PYTHON3: C:/Xilinx/Vivado/2022.2\tps\win64\python-3.8.3
+RDI_PYTHON3_VERSION: 3.8.3
+RDI_PYTHONHOME: C:/Xilinx/Vivado/2022.2\tps\win64\python-3.8.3
+RDI_PYTHONPATH: C:/Xilinx/Vivado/2022.2\tps\win64\python-3.8.3;C:/Xilinx/Vivado/2022.2\tps\win64\python-3.8.3\bin;C:/Xilinx/Vivado/2022.2\tps\win64\python-3.8.3\lib;C:/Xilinx/Vivado/2022.2\tps\win64\python-3.8.3\lib\site-packages
+RDI_PYTHON_LD_LIBPATH: C:/Xilinx/Vivado/2022.2\tps\win64\python-3.8.3\lib
+RDI_TPS_ROOT: C:/Xilinx/Vivado/2022.2/tps/win64
+RDI_USE_JDK11: True
+RDI_VERBOSE: False
+XILINX: C:/Xilinx/Vivado/2022.2/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2022.2/ids_lite/ISE
+XILINX_HLS: C:/Xilinx/Vitis_HLS/2022.2
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2022.2
+XILINX_VIVADO: C:/Xilinx/Vivado/2022.2
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2022.2
+_RDI_BINROOT: C:\Xilinx\Vivado\2022.2\bin
+_RDI_CWD: C:\Users\PugWomp\Documents\Github\VerilogSnake\Verilog_Snake
+
+
+GUI allocated memory:	256 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 675 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: C:\Users\PugWomp\Documents\Github\VerilogSnake\Verilog_Snake\Verilog_Snake.xpr. Version: Vivado v2022.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 675 MB. GUI used memory: 71 MB. Current time: 4/19/25, 12:55:17 PM PDT
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.xpr 
+// Tcl Message: INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 83 MB (+84881kb) [00:00:35]
+// [Engine Memory]: 942 MB (+835951kb) [00:00:35]
+// [GUI Memory]: 102 MB (+14997kb) [00:00:36]
+// WARNING: HEventQueue.dispatchEvent() is taking  3863 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 960 MB. GUI used memory: 75 MB. Current time: 4/19/25, 12:55:34 PM PDT
+// Project name: Verilog_Snake; location: C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake; part: xc7a100tcsg324-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:35 ; elapsed = 00:00:20 . Memory (MB): peak = 1094.625 ; gain = 297.766 
+dismissDialog("Open Project"); // bq
+// [Engine Memory]: 1,053 MB (+67625kb) [00:00:40]
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (Font_test_top.v) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v), font_gen_unit : Font_test_gen (Font_test_gen.v)]", 3, true); // D - Node
+// [GUI Memory]: 125 MB (+19108kb) [00:00:51]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v), font_gen_unit : Font_test_gen (Font_test_gen.v)]", 3, true, false, false, false, false, true); // D - Double Click - Node
+// Elapsed time: 209 seconds
+selectCodeEditor("Font_test_gen.v", 320, 568); // ac
+selectCodeEditor("Font_test_gen.v", 241, 567); // ac
+// Elapsed time: 39 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // ag
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // ag
+// Elapsed time: 64 seconds
+typeControlKey((HResource) null, "Font_test_gen.v", 'v'); // ac
+// [GUI Memory]: 136 MB (+4275kb) [00:07:39]
+// Elapsed time: 113 seconds
+selectCodeEditor("Font_test_gen.v", 291, 401); // ac
+selectCodeEditor("Font_test_gen.v", 152, 361); // ac
+selectCodeEditor("Font_test_gen.v", 89, 319); // ac
+selectCodeEditor("Font_test_gen.v", 394, 347); // ac
+// Elapsed time: 24 seconds
+selectCodeEditor("Font_test_gen.v", 89, 332); // ac
+typeControlKey((HResource) null, "Font_test_gen.v", 'v'); // ac
+selectCodeEditor("Font_test_gen.v", 45, 339); // ac
+// WARNING: HEventQueue.dispatchEvent() is taking  1214 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  130817 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1841 ms.
+// Elapsed time: 589 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 11); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 12); // D
+// HMemoryUtils.trashcanNow. Engine heap size: 1,053 MB. GUI used memory: 79 MB. Current time: 4/19/25, 1:25:36 PM PDT
+// Elapsed time: 953 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake (snake.v)]", 5, true); // D - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake (snake.v)]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, apple_spawn (apple_spawn.v)]", 7, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake_graph_animate (snake_graph_animate.v)]", 9, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake_graph_animate (snake_graph_animate.v)]", 9, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake_graph_animate (snake_graph_animate.v)]", 9, false, false, false, false, false, true); // D - Double Click
+selectCodeEditor("snake_graph_animate.v", 448, 670); // ac
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake_fruit_animate (snake_fruit_animate.v)]", 8, false); // D
+// Elapsed time: 550 seconds
+selectCodeEditor("snake_graph_animate.v", 174, 408); // ac
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Font_test_gen.v", 2); // o
+selectCodeEditor("Font_test_gen.v", 391, 318); // ac
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("Font_test_gen.v", 432, 500); // ac
+// Elapsed time: 174 seconds
+selectCodeEditor("Font_test_gen.v", 206, 174); // ac
+typeControlKey((HResource) null, "Font_test_gen.v", 'v'); // ac
+selectCodeEditor("Font_test_gen.v", 7, 158); // ac
+selectCodeEditor("Font_test_gen.v", 343, 216); // ac
+selectCodeEditor("Font_test_gen.v", 49, 155); // ac
+// Elapsed time: 11 seconds
+selectCodeEditor("Font_test_gen.v", 183, 337); // ac
+// Elapsed time: 217 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake_graph_animate (snake_graph_animate.v)]", 9, false); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v), font_gen_unit : Font_test_gen (Font_test_gen.v)]", 3); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v), font_gen_unit : Font_test_gen (Font_test_gen.v)]", 3); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v), font_gen_unit : Font_test_gen (Font_test_gen.v), font_unit : Font_ROM (Font_ROM.v)]", 4, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v), font_gen_unit : Font_test_gen (Font_test_gen.v)]", 3, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Font_test_top (Font_test_top.v), font_gen_unit : Font_test_gen (Font_test_gen.v)]", 3, true); // D - Node
+// Elapsed time: 33 seconds
+selectCodeEditor("Font_test_gen.v", 286, 291); // ac
+typeControlKey((HResource) null, "Font_test_gen.v", 'c'); // ac
+selectCodeEditor("Font_test_gen.v", 417, 464); // ac
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "text_screen_gen"); // Q
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create Source File"); // m
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 13 seconds
+dismissDialog("Add Sources"); // c
+// Tcl Message: close [ open C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/text_screen_gen.v w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/text_screen_gen.v 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "Yes"); // JButton
+dismissDialog("Define Module"); // p
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectCodeEditor("Font_test_gen.v", 103, 427); // ac
+// Elapsed time: 13 seconds
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, snake (snake.v)]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, text_screen_gen (text_screen_gen.v)]", 10, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, text_screen_gen (text_screen_gen.v)]", 10, false, false, false, false, false, true); // D - Double Click
+selectCodeEditor("text_screen_gen.v", 133, 683); // ac
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+selectCodeEditor("text_screen_gen.v", 248, 210); // ac
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+selectCodeEditor("text_screen_gen.v", 142, 598); // ac
+selectCodeEditor("text_screen_gen.v", 84, 611); // ac
+selectCodeEditor("text_screen_gen.v", 66, 110); // ac
+selectCodeEditor("text_screen_gen.v", 38, 92); // ac
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Font_test_gen.v", 2); // o
+// Elapsed time: 19 seconds
+selectCodeEditor("Font_test_gen.v", 69, 252); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "text_screen_gen.v", 4); // o
+// Elapsed time: 115 seconds
+selectCodeEditor("text_screen_gen.v", 431, 438); // ac
+selectCodeEditor("text_screen_gen.v", 431, 465); // ac
+selectCodeEditor("text_screen_gen.v", 472, 689); // ac
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+typeControlKey(null, null, 'z');
+selectCodeEditor("text_screen_gen.v", 466, 711); // ac
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+// Elapsed time: 118 seconds
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+selectCodeEditor("text_screen_gen.v", 491, 704); // ac
+// Elapsed time: 16 seconds
+selectCodeEditor("text_screen_gen.v", 288, 715); // ac
+// Elapsed time: 35 seconds
+selectCodeEditor("text_screen_gen.v", 317, 534); // ac
+// Elapsed time: 23 seconds
+selectCodeEditor("text_screen_gen.v", 395, 673); // ac
+// Elapsed time: 14 seconds
+selectCodeEditor("text_screen_gen.v", 395, 673); // ac
+// HMemoryUtils.trashcanNow. Engine heap size: 1,053 MB. GUI used memory: 73 MB. Current time: 4/19/25, 1:55:39 PM PDT
+// Elapsed time: 293 seconds
+selectCodeEditor("text_screen_gen.v", 255, 699); // ac
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+selectCodeEditor("text_screen_gen.v", 83, 319); // ac
+selectCodeEditor("text_screen_gen.v", 18, 421); // ac
+// Elapsed time: 19 seconds
+selectCodeEditor("text_screen_gen.v", 244, 668); // ac
+selectCodeEditor("text_screen_gen.v", 320, 722); // ac
+selectCodeEditor("text_screen_gen.v", 236, 670); // ac
+selectCodeEditor("text_screen_gen.v", 242, 563); // ac
+selectCodeEditor("text_screen_gen.v", 199, 582); // ac
+selectCodeEditor("text_screen_gen.v", 252, 563); // ac
+selectCodeEditor("text_screen_gen.v", 242, 564); // ac
+selectCodeEditor("text_screen_gen.v", 594, 543); // ac
+selectCodeEditor("text_screen_gen.v", 170, 199); // ac
+selectCodeEditor("text_screen_gen.v", 195, 214); // ac
+selectCodeEditor("text_screen_gen.v", 427, 213); // ac
+selectCodeEditor("text_screen_gen.v", 360, 175); // ac
+selectCodeEditor("text_screen_gen.v", 287, 212); // ac
+selectCodeEditor("text_screen_gen.v", 291, 253); // ac
+selectCodeEditor("text_screen_gen.v", 284, 244); // ac
+// Elapsed time: 27 seconds
+selectCodeEditor("text_screen_gen.v", 308, 295); // ac
+// Elapsed time: 14 seconds
+selectCodeEditor("text_screen_gen.v", 110, 485); // ac
+selectCodeEditor("text_screen_gen.v", 185, 469); // ac
+selectCodeEditor("text_screen_gen.v", 186, 489); // ac
+// Elapsed time: 42 seconds
+selectCodeEditor("text_screen_gen.v", 551, 615); // ac
+selectCodeEditor("text_screen_gen.v", 75, 640); // ac
+selectCodeEditor("text_screen_gen.v", 61, 643); // ac
+// Elapsed time: 33 seconds
+selectCodeEditor("text_screen_gen.v", 408, 663); // ac
+selectCodeEditor("text_screen_gen.v", 408, 650); // ac
+selectCodeEditor("text_screen_gen.v", 418, 636); // ac
+selectCodeEditor("text_screen_gen.v", 426, 640); // ac
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("text_screen_gen.v", 116, 635); // ac
+selectCodeEditor("text_screen_gen.v", 133, 561); // ac
+selectCodeEditor("text_screen_gen.v", 310, 565); // ac
+// Elapsed time: 13 seconds
+selectCodeEditor("text_screen_gen.v", 587, 679); // ac
+selectCodeEditor("text_screen_gen.v", 196, 548); // ac
+selectCodeEditor("text_screen_gen.v", 302, 657); // ac
+selectCodeEditor("text_screen_gen.v", 407, 690); // ac
+selectCodeEditor("text_screen_gen.v", 621, 654); // ac
+// Elapsed time: 50 seconds
+selectCodeEditor("text_screen_gen.v", 458, 693); // ac
+// Elapsed time: 166 seconds
+typeControlKey((HResource) null, "text_screen_gen.v", 'v'); // ac
+selectCodeEditor("text_screen_gen.v", 20, 716); // ac
+// Elapsed time: 13 seconds
+selectCodeEditor("text_screen_gen.v", 476, 652); // ac
+// Elapsed time: 60 seconds
+selectCodeEditor("text_screen_gen.v", 559, 664); // ac
+// Elapsed time: 75 seconds
+selectCodeEditor("text_screen_gen.v", 57, 715); // ac
+selectCodeEditor("text_screen_gen.v", 270, 726); // ac
+selectCodeEditor("text_screen_gen.v", 270, 726); // ac
+selectCodeEditor("text_screen_gen.v", 256, 723); // ac
+// Elapsed time: 15 seconds
+selectCodeEditor("text_screen_gen.v", 275, 651); // ac
+selectCodeEditor("text_screen_gen.v", 160, 732); // ac
+selectCodeEditor("text_screen_gen.v", 161, 713); // ac
+// Elapsed time: 78 seconds
+selectCodeEditor("text_screen_gen.v", 270, 567); // ac
+selectCodeEditor("text_screen_gen.v", 226, 718); // ac
+// Elapsed time: 13 seconds
+selectCodeEditor("text_screen_gen.v", 259, 712); // ac
+selectCodeEditor("text_screen_gen.v", 217, 593); // ac
+selectCodeEditor("text_screen_gen.v", 415, 591); // ac
+selectCodeEditor("text_screen_gen.v", 255, 562); // ac
+selectCodeEditor("text_screen_gen.v", 173, 558); // ac
+// WARNING: HEventQueue.dispatchEvent() is taking  4716200 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,053 MB. GUI used memory: 72 MB. Current time: 4/19/25, 3:35:51 PM PDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1858 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1823 ms.
+// Elapsed time: 5186 seconds
+selectCodeEditor("text_screen_gen.v", 883, 333); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 19 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, text_screen_gen (text_screen_gen.v)]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, text_screen_gen (text_screen_gen.v), font_unit : Font_ROM (Font_ROM.v)]", 6, false); // D

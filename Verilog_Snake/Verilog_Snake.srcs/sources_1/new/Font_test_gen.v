@@ -33,8 +33,8 @@ module Font_test_gen
    wire [3:0] row_addr;
    wire [2:0] bit_addr;
    wire [7:0] font_word;
-   wire font_bit, text_bit_on;
-
+   wire font_bit;
+   
    // body
    // instantiate font ROM
    Font_ROM font_unit
