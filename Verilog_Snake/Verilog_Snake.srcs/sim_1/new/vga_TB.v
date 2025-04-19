@@ -24,19 +24,20 @@ module vga_TB();
     vga_sync uut(.clk(clk_TB), .reset(reset_TB), .hsync(hsync_TB), 
                  .vsync(vsync_TB), .video(vid), .p_tick(p_tick), 
                  .pixel_y(ycnt), .pixel_x(xcnt));
+    always #1 clk_TB <= ~clk_TB; // one cycle is 2
     
-    always #3 clk_TB <= ~clk_TB; // one cycle is 20
-    
-    localparam period = 25;
+    localparam period = 5;
     
     initial begin
         clk_TB = 0;
         reset_TB = 1;
         #1;
         reset_TB = 0;
-        while(vsync_TB == 0)begin
-           #period; 
-        end
-
-    end
+    end  
+    always @(posedge clk_TB) begin
+        #period;
+        // Never reaches vsync
+        if(vsync_TB)
+            $display("REACHED VSYNC");      
+    end     
 endmodule

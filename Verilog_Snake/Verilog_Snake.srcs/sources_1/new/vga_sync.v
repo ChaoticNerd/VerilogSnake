@@ -14,8 +14,7 @@
 
 // :::WIP::: REVIEW TEXTBOOK FOR BETTER UNDERSTANDING :::WIP:::
 // Listing 13.1
-module vga_sync
-   (
+module vga_sync(
     input wire clk, reset,
     output wire hsync, vsync, video, p_tick,
     output wire [9:0] pixel_x, pixel_y
@@ -67,13 +66,18 @@ module vga_sync
    // mod-2 circuit to generate 25 MHz enable tick
    assign mod2_next = ~mod2_reg;
    assign pixel_tick = mod2_reg;
-
-   // status signals
-   // end of horizontal counter (799)
-   assign h_end = (h_count_reg==(HD+HF+HB+HR-1));
-   // end of vertical counter (524)
-   assign v_end = (v_count_reg==(VD+VF+VB+VR-1));
-
+   
+   
+   // next-state logic of mod-525 vertical sync counter
+   always @*
+      if (h_end)
+         if (v_end)
+            v_count_next = 0;
+         else
+            v_count_next = v_count_reg + 1;
+      else
+         v_count_next = v_count_reg;
+         
    // next-state logic of mod-800 horizontal sync counter
    always @*
       if (pixel_tick)  // 25 MHz pulse
@@ -84,15 +88,11 @@ module vga_sync
       else
          h_count_next = h_count_reg;
 
-   // next-state logic of mod-525 vertical sync counter
-   always @*
-      if (pixel_tick & h_end)
-         if (v_end)
-            v_count_next = 0;
-         else
-            v_count_next = v_count_reg + 1;
-      else
-         v_count_next = v_count_reg;
+    // status signals
+   // end of horizontal counter (799)
+   assign h_end = (h_count_reg==(HD+HF+HB+HR-1));
+   // end of vertical counter (524)
+   assign v_end = (v_count_reg==(VD+VF+VB+VR-1));
 
    // horizontal and vertical sync, buffered to avoid glitch
    // h_sync_next asserted between 656 and 751
@@ -111,6 +111,6 @@ module vga_sync
    assign pixel_x = h_count_reg;
    assign pixel_y = v_count_reg;
    assign p_tick = pixel_tick;
-
+   
 endmodule
 
