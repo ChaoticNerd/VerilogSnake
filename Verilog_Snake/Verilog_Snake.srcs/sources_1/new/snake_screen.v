@@ -20,31 +20,30 @@ module snake_screen(
     
     wire border_on, sq_fruit_on, rd_fruit_on;
     wire [2:0] border_RGB, fruit_rgb;
-    
-    localparam FRUIT_SIZE = 4;
-    
+        
     // Want fruit in middle of screen ~239 - ~339
-    localparam FRUIT_L = 339;                       // Left part of fruit
-    localparam FRUIT_R = FRUIT_L + FRUIT_SIZE - 1;  // Right part of fruit (-1 since 339 is the first pixel)
+    localparam FRUIT_X = 320;
+    localparam FRUIT_Y = 240;
     
-    localparam FRUIT_T = 239;                       // Top of Fruit
-    localparam FRUIT_B = FRUIT_T + FRUIT_SIZE -1;   // Bot of fruit (-1 since it starts at 239)
+    // Active area of the screen
+    localparam MAX_X = 352;
+    localparam MIN_X = 288;
     
-    localparam MAX_HEIGHT = 640;    // CAN CHANGE THIS, would need to change x_val and y_val
-    localparam MAX_WIDTH  = 480;
+    localparam MAX_Y = 272;
+    localparam MIN_Y = 208;
     
     //---------------------------------- BORDERS -------------------------------------
-    localparam LEFT_BORDER_L  = MAX_WIDTH;
-    localparam LEFT_BORDER_R  = MAX_WIDTH - 2;
+    localparam LEFT_BORDER_L  = MIN_X - 4;
+    localparam LEFT_BORDER_R  = MIN_X - 2;
     
-    localparam RIGHT_BORDER_L = 2;
-    localparam RIGHT_BORDER_R = 0;
+    localparam RIGHT_BORDER_L = MAX_X + 2;
+    localparam RIGHT_BORDER_R = MAX_X + 4;
     
-    localparam TOP_BORDER_T   = MAX_HEIGHT - 16; // 16 is space for text
-    localparam TOP_BORDER_B   = MAX_HEIGHT - 2 - 16;
+    localparam TOP_BORDER_T   = MAX_Y + 4; 
+    localparam TOP_BORDER_B   = MAX_Y + 2;
     
-    localparam BOT_BORDER_T   = 2;
-    localparam BOT_BORDER_B   = 0;
+    localparam BOT_BORDER_T   = MIN_Y - 2;
+    localparam BOT_BORDER_B   = MIN_Y - 4;
     
     assign border_on = (LEFT_BORDER_L  <= x_val) && (x_val <= LEFT_BORDER_R)  &&
                        (RIGHT_BORDER_L <= x_val) && (x_val <= RIGHT_BORDER_R) &&
@@ -55,9 +54,8 @@ module snake_screen(
     //---------------------------------- SNAKE ---------------------------------------
     
     //---------------------------------- FRUIT ---------------------------------------
-    // Fruit is 4x4 
-    assign sq_fruit_on = (FRUIT_L <= x_val) && (x_val <= FRUIT_R)&&
-                         (FRUIT_T <= y_val) && (y_val <= FRUIT_B);
+    // Fruit is 1 pix
+    assign sq_fruit_on = (FRUIT_X <= x_val) && (FRUIT_Y <= y_val);
     assign fruit_rgb = 3'b100; // RED
     //------------------------------- RGB MULTIPLEXING ----------------------------------
     always @*

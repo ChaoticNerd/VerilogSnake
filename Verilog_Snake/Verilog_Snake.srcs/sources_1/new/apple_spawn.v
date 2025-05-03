@@ -19,13 +19,13 @@ module apple_spawn(
     output reg [9:0] x_pix, y_pix
     );
     // Border of the screen
-    localparam MAX_X = 639;
-    localparam MIN_X = 1;
+    localparam MAX_X = 352;
+    localparam MIN_X = 288;
     
-    localparam MAX_Y = 479;
-    localparam MIN_Y = 2;
+    localparam MAX_Y = 272;
+    localparam MIN_Y = 208;
     
-    always @(eaten) begin
+    always @(posedge eaten) begin
         // $urandom for unsigned random values
         x_pix = $urandom_range(MAX_X, MIN_X);
         y_pix = $urandom_range(MAX_Y, MIN_Y);

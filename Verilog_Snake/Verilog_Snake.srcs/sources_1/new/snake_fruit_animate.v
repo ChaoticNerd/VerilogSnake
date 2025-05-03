@@ -33,15 +33,6 @@ module snake_fruit_animate(
     wire [9:0] FRUIT_X_NEXT, FRUIT_Y_NEXT;
     
     //---------------------------------- FRUIT ---------------------------------------
-    // Fruit is 4x4 
-    always @* begin
-        case(fruit_rom_addr)
-            3'h0: fruit_rom_data = 4'b0110;
-            3'h1: fruit_rom_data = 4'b1111;
-            3'h2: fruit_rom_data = 4'b1111;
-            3'h3: fruit_rom_data = 4'b0110;
-         endcase
-   end 
     
     always @(posedge clk, posedge reset) begin
         if(reset)begin
@@ -54,8 +45,7 @@ module snake_fruit_animate(
         end
     end
         
-    assign sq_fruit_on = (FRUIT_L <= x_val) && (x_val <= FRUIT_R)&&
-                         (FRUIT_T <= y_val) && (y_val <= FRUIT_B);
+    assign sq_fruit_on = (FRUIT_L <= x_val) && (x_val <= FRUIT_R);
     assign fruit_rom_addr = y_val[2:0] - FRUIT_T[2:0];
     assign fruit_col = x_val[2:0] - FRUIT_L[2:0];
     assign rom_bit = fruit_rom_data[fruit_col];
