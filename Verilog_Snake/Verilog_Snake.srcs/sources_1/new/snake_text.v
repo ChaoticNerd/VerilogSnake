@@ -83,7 +83,7 @@ module snake_text(
             6'h1d: char_addr_s = 7'h00;//
             6'h1e: char_addr_s = 7'h00;// 
             6'h1f: char_addr_s = 7'h00;// 
-         endcase;
+         endcase
             
    //logo region (above game box)
    //scale 64-by-128
@@ -98,7 +98,7 @@ module snake_text(
             3'o4: char_addr_l = 7'h41;// A
             3'o5: char_addr_l = 7'h53;// K
             3'o6: char_addr_l = 7'h53;// E
-        endcase; 
+        endcase
    
    //rules region (idk)
    //display press any button to start
@@ -122,7 +122,7 @@ module snake_text(
             3'o5: char_addr_o = 7'h56;// V
             3'o6: char_addr_o = 7'h45;// E
             3'o7: char_addr_o = 7'h52;// R
-        endcase;    
+        endcase    
    
    
    //Score Result region (undergame box)
@@ -152,7 +152,7 @@ module snake_text(
             6'h0d: char_addr_s = 7'h00;//
             6'h0e: char_addr_s = 7'h00;//
             6'h0f: char_addr_s = 7'h00;// 
-        endcase;
+        endcase
    //Hi-Score Result region (undergame box)
    //scale
    //display: Score:###
@@ -161,7 +161,7 @@ module snake_text(
    assign row_addr_s = pix_y[4:1];
    assign bit_addr_s = pix_x[3:1];
    assign score_rom_addr = {pix_y[5:4], pix_x[6:3]};
-   always @*
+   always @* begin
         case(score_rom_addr)
             //row 1
             6'h00: char_addr_s = 7'h48;// H
@@ -180,12 +180,12 @@ module snake_text(
             6'h0d: char_addr_s = 7'h00;//
             6'h0e: char_addr_s = 7'h00;// 
             6'h0f: char_addr_s = 7'h00;//  
-        endcase;
+        endcase
+   end
    // 
    // MUX for font rom adr and rgb
    //
-   always begin @*
-   begin
+   always @* begin
         text_rgb = 3'b000;
         if (score_on)
             begin
@@ -211,14 +211,26 @@ module snake_text(
                 if (font_bit)
                     text_rgb = 3'b001;
             end
-        else if (score_on)
+        else if (scoreres_on)
             begin
-                char_addr = char_addr_s;
-                row_addr = row_addr_s;
-                bit_addr = bit_addr_s;
+                char_addr = char_addr_sr;
+                row_addr = row_addr_sr;
+                bit_addr = bit_addr_sr;
                 if (font_bit)
                     text_rgb = 3'b001;
             end
-        else if
-   
+        else if (hiscoreres_on)
+            begin
+                char_addr = char_addr_hsr;
+                row_addr = row_addr_hsr;
+                bit_addr = bit_addr_hsr;
+                if (font_bit)
+                    text_rgb = 3'b001;
+            end
+        end
+
+assign text_on = {score_on, logo_on, over_on, scoreres_on, hiscoreres_on};
+//rom interface
+assign rom_addr = {char_addr, row_addr};
+assign font_bit = font_word[~bit_addr];
 endmodule
