@@ -253,21 +253,29 @@ assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_
         if (btn[0] & ~direction[0] & ~direction[2]) begin // turn
         snake_head_x_delta_next = SNAKE_0V;
         snake_head_y_delta_next = SNAKE_PV;
+        turn_x = turn_x | (snake_head_x << (10 * turns));
+        turn_y = turn_y | (snake_head_y << (10 * turns));
         turns = turns + 1;
         end
     else if (btn[1] & ~direction[1] & ~direction[3]) begin
         snake_head_x_delta_next = SNAKE_PV;
         snake_head_y_delta_next = SNAKE_0V;
+        turn_x = turn_x | (snake_head_x << (10 * turns));
+        turn_y = turn_y | (snake_head_y << (10 * turns));
         turns = turns + 1;
         end
     else if (btn[2] & ~direction[2] & ~direction[0]) begin
         snake_head_x_delta_next = SNAKE_0V;
         snake_head_y_delta_next = SNAKE_NV;
+        turn_x = turn_x | (snake_head_x << (10 * turns));
+        turn_y = turn_y | (snake_head_y << (10 * turns));
         turns = turns + 1;
         end
     else if (btn[3] & ~direction[3] & ~direction[1]) begin
         snake_head_x_delta_next = SNAKE_NV;
         snake_head_y_delta_next = SNAKE_0V;
+        turn_x = turn_x | (snake_head_x << (10 * turns));
+        turn_y = turn_y | (snake_head_y << (10 * turns));
         turns = turns + 1;
         end
     else begin
