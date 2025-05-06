@@ -80,6 +80,7 @@ integer turns = 0;
 reg [31:0] snake_parts; // parts = body part, returns 1 whenever a part exists
 reg snake_head_on;
 reg snake_tail_on;
+reg fruit_on;
 reg [319:0] turn_x;
 reg [319:0] turn_y;
 reg snake_on;
@@ -314,5 +315,20 @@ assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_
     // check location is less than or more than latest turn or head
     end
     end
-    
- endmodule
+
+always @* begin
+    if (~video_on) begin
+        graph_rgb = 3'b000;
+    end
+    else if (snake_on) begin
+        graph_rgb = 3'b010;
+    end
+    else if (fruit_on) begin
+        graph_rgb = 3'b001;
+    end
+    else begin
+        graph_rgb = 3'b110;
+    end
+end
+
+endmodule
