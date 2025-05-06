@@ -55,7 +55,7 @@ module snake_screen(
     
     //---------------------------------- FRUIT ---------------------------------------
     // Fruit is 1 pix
-    assign sq_fruit_on = (FRUIT_X <= x_val) && (FRUIT_Y <= y_val);
+    //assign sq_fruit_on = (FRUIT_X <= x_val) && (FRUIT_Y <= y_val);
     assign fruit_rgb = 3'b100; // RED
     //------------------------------- RGB MULTIPLEXING ----------------------------------
     always @*
