@@ -25,6 +25,7 @@ module snake_graph_animate(
         input wire reset,
         input wire video_on, eaten,
         input wire [3:0] btn,
+        input wire [9:0] apple_x, apple_y,
         input wire [9:0] pix_x,
         input wire [9:0] pix_y,
         
@@ -95,6 +96,26 @@ reg snake_on;
 integer i = 0;
 reg [9:0] turns1x, turns1y, turns2x, turns2y;
 reg [9:0] turn_x_temp, turn_y_temp;
+
+//---------------------------------- BORDERS -------------------------------------
+    localparam LEFT_BORDER_L  = MIN_X - 4;
+    localparam LEFT_BORDER_R  = MIN_X - 2;
+    
+    localparam RIGHT_BORDER_L = MAX_X + 2;
+    localparam RIGHT_BORDER_R = MAX_X + 4;
+    
+    localparam TOP_BORDER_T   = MAX_Y + 4; 
+    localparam TOP_BORDER_B   = MAX_Y + 2;
+    
+    localparam BOT_BORDER_T   = MIN_Y - 2;
+    localparam BOT_BORDER_B   = MIN_Y - 4;
+    
+    assign border_on = (LEFT_BORDER_L  <= pix_x) && (pix_x <= LEFT_BORDER_R)  &&
+                       (RIGHT_BORDER_L <= pix_x) && (pix_x <= RIGHT_BORDER_R) &&
+                       (TOP_BORDER_T   <= pix_y) && (pix_y <= TOP_BORDER_B)   &&
+                       (BOT_BORDER_T   <= pix_y) && (pix_y <= BOT_BORDER_B);
+    assign border_RGB = 3'b111; // WHITE
+
 // fill in 
 // check num of turns
 always@(*) begin
@@ -135,6 +156,7 @@ else if (turns == 1) begin
     endcase
 end
 else begin
+    assign fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
     // num turns = num shifts
     // foor loop n if statement?
     // bit call HAS to be constant...
@@ -222,6 +244,7 @@ assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_
         if(eaten)begin
             FRUIT_X_REG <= FRUIT_X_NEXT;
             FRUIT_Y_REG <= FRUIT_Y_NEXT;
+            // turn on fruit
             if (btn[0] & ~direction[0] & ~direction[2]) begin // turn
                 snake_head_x_delta_next = SNAKE_0V;
                 snake_head_y_delta_next = SNAKE_PV;
@@ -315,7 +338,7 @@ assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_
     // check location is less than or more than latest turn or head
     end
     end
-
+    
 always @* begin
     if (~video_on) begin
         graph_rgb = 3'b000;

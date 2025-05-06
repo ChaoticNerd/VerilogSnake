@@ -86,3 +86,8 @@ Verilog_Snake/Verilog_Snake.xpr
 *.rlx
 *.log
 *.rlx
+*.wpc
+*.xpr
+*.jou
+*.log
+*.jou
