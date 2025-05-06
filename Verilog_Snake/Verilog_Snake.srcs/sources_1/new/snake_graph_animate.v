@@ -76,7 +76,7 @@ assign snake_head_y = snake_head_y_reg;
 assign snake_tail_x = snake_tail_x_reg;
 assign snake_tail_y = snake_tail_y_reg;
 
-integer turns = 0;
+reg [4:0] turns = 5'b00000;
 // supports up to 32 turns idk
 reg [31:0] snake_parts; // parts = body part, returns 1 whenever a part exists
 reg snake_head_on;
@@ -84,7 +84,6 @@ reg snake_tail_on;
 reg fruit_on;
 reg [319:0] turn_x;
 reg [319:0] turn_y;
-reg snake_on;
 // i think the best way to do this is to put a location for every turn
 // update turn x and turn y so body 1 and body 2 can use it or smthn
 // max # of turns: ??? 16 maybe
@@ -93,7 +92,7 @@ reg snake_on;
 // an array of 9 bits each. so 9 * 144 bit thing with 9 bit shifts * turn number
 // I THINK IVE COOKED??
 
-integer i = 0;
+integer i = 1;
 reg [9:0] turns1x, turns1y, turns2x, turns2y;
 reg [9:0] turn_x_temp, turn_y_temp;
 
@@ -116,22 +115,26 @@ reg [9:0] turn_x_temp, turn_y_temp;
                        (BOT_BORDER_T   <= pix_y) && (pix_y <= BOT_BORDER_B);
     assign border_RGB = 3'b111; // WHITE
 
+reg snake_on;
 // fill in 
 // check num of turns
 always@(*) begin
 if (turns == 0) begin
+    fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
     // check direction
     // wait i have cases
     case(direction)
-        4'b0001 : snake_on = ((snake_tail_y <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x)); // up
-        4'b0010 : snake_on = ((snake_tail_x <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y)); // right
-        4'b0100 : snake_on = ((snake_head_y <= pix_y) && (pix_y <= snake_tail_y) && (pix_x == snake_head_x)); // down
-        4'b1000 : snake_on = ((snake_head_x <= pix_x) && (pix_x <= snake_tail_x) && (pix_x == snake_head_y)); // left
-        default : snake_on = snake_on;
+        4'b0001 : snake_head_on = ((snake_tail_y <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x)); // up
+        4'b0010 : snake_head_on = ((snake_tail_x <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y)); // right
+        4'b0100 : snake_head_on = ((snake_head_y <= pix_y) && (pix_y <= snake_tail_y) && (pix_x == snake_head_x)); // down
+        4'b1000 : snake_head_on = ((snake_head_x <= pix_x) && (pix_x <= snake_tail_x) && (pix_x == snake_head_y)); // left
+        default : snake_head_on = snake_head_on;
     endcase
+    snake_on = snake_head_on;
     //assign snake_on = (snake_head_x <= snake_tail_x) && (snake_head_y <= snake_tail_y);
 end
 else if (turns == 1) begin
+    fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
     //i wish i could use a case statement but it's reliant on diff things.
     // UNLESS i make a variable...
     if (snake_tail_x < turn_x[9:0]) begin
@@ -148,15 +151,21 @@ else if (turns == 1) begin
         snake_tail_on = ((turn_y[9:0] <= pix_y) && (pix_y <= snake_tail_y) && (pix_x == snake_tail_x));
     end
     case(direction)
-        4'b0001 : snake_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x)) || snake_tail_on); // up
-        4'b0010 : snake_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y)) || snake_tail_on); // right
-        4'b0100 : snake_on = (((snake_head_y <= pix_y) && (pix_y <= turn_y[9:0]) && (pix_x == snake_head_x)) || snake_tail_on); // down
-        4'b1000 : snake_on = (((snake_head_x <= pix_x) && (pix_x <= turn_x[9:0]) && (pix_x == snake_head_y)) || snake_tail_on); // left
-        default : snake_on = snake_on;
+        4'b0001 : snake_head_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x))); // up
+        4'b0010 : snake_head_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y))); // right
+        4'b0100 : snake_head_on = (((snake_head_y <= pix_y) && (pix_y <= turn_y[9:0]) && (pix_x == snake_head_x))); // down
+        4'b1000 : snake_head_on = (((snake_head_x <= pix_x) && (pix_x <= turn_x[9:0]) && (pix_x == snake_head_y))); // left
+        default : snake_head_on = snake_head_on;
     endcase
-end
-else begin
-    assign fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
+    snake_on = snake_head_on || snake_tail_on;
+    end
+else if (turns >= 2) begin
+    fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
+    //i = 1;
+    //if (turns > 32) begin
+    //    turns = 5;
+    //end
+    //turns = 32;
     // num turns = num shifts
     // foor loop n if statement?
     // bit call HAS to be constant...
@@ -169,6 +178,7 @@ else begin
             turns1y = {turn_y[i*10-1],turn_y[i* 10-2],turn_y[i*10-3],turn_y[i*10-4],turn_y[i*10-5],turn_y[i*10-6],turn_y[i*10-7],turn_y[i*10-8],turn_y[i*10-9],turn_y[i*10-10]};
             turns2x = {turn_x[(i + 1)*10-1],turn_x[(i + 1)* 10-2],turn_x[(i + 1)*10-3],turn_x[(i + 1)*10-4],turn_x[(i + 1)*10-5],turn_x[(i + 1)*10-6],turn_x[(i + 1)*10-7],turn_x[(i + 1)*10-8],turn_x[(i + 1)*10-9],turn_x[(i + 1)*10-10]};
             turns2y = {turn_y[(i + 1)*10-1],turn_y[(i + 1)* 10-2],turn_y[(i + 1)*10-3],turn_y[(i + 1)*10-4],turn_y[(i + 1)*10-5],turn_y[(i + 1)*10-6],turn_y[(i + 1)*10-7],turn_y[(i + 1)*10-8],turn_y[(i + 1)*10-9],turn_y[(i + 1)*10-10]};
+
             if (turns1x < turns2x) begin
                 snake_parts[i] = ((turns1x <= pix_x) && (pix_x <= turns2x) && (pix_y == turns1y));
             end
@@ -185,6 +195,7 @@ else begin
             // use OR for snake_on. we are not filling in a square of snake. they are individual lines
             // in short it is checking OR for body parts. it is a SOP.
             // ((snake_tail_y <= pix_y) && (pix_y <= turn_y[i]) && (snake_tail_x == turn[x])) || etc.
+            //i = turns + 1;
         end
         case(direction)
         4'b0001 : snake_head_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x))); // up
@@ -209,8 +220,9 @@ else begin
     snake_on = snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0];
 
 
+
 if ((snake_tail_x == turns2x) && (snake_tail_y == turns2y)) begin
-    turns = turns - 1;
+    turns = turns - 5'b00001;
     turn_x = turn_x & (10'b0 << (turns * 10));
     turn_y = turn_y & (10'b0 << (turns * 10));
     // lets say turns = 1
@@ -219,9 +231,10 @@ if ((snake_tail_x == turns2x) && (snake_tail_y == turns2y)) begin
     // nvm i need to subtract first
 end
 end
+end
 
     // maybe delete turns by checking if they are nonzero and total distance from head is greater than snake length?
-end
+//end
 
 
 // refer to ball movement bc its more similar
@@ -234,73 +247,50 @@ assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_
     //note to self: add snake end
     
     //---------------------------------- FRUIT ---------------------------------------
-    
-    always @(posedge clk, posedge reset, posedge eaten) begin
+    // , posedge reset, posedge eaten
+    always @(posedge clk) begin
         if(reset)begin
             // RESET SNAKE POSITION HERE
             FRUIT_X_REG <= 0;
             FRUIT_Y_REG <= 0;
+            
         end
         if(eaten)begin
             FRUIT_X_REG <= FRUIT_X_NEXT;
             FRUIT_Y_REG <= FRUIT_Y_NEXT;
             // turn on fruit
-            if (btn[0] & ~direction[0] & ~direction[2]) begin // turn
-                snake_head_x_delta_next = SNAKE_0V;
-                snake_head_y_delta_next = SNAKE_PV;
-                turns = turns + 1;
-                end
-            else if (btn[1] & ~direction[1] & ~direction[3]) begin
-                snake_head_x_delta_next = SNAKE_PV;
-                snake_head_y_delta_next = SNAKE_0V;
-                turns = turns + 1;
-                end
-            else if (btn[2] & ~direction[2] & ~direction[0]) begin
-                snake_head_x_delta_next = SNAKE_0V;
-                snake_head_y_delta_next = SNAKE_NV;
-                turns = turns + 1;
-                end
-            else if (btn[3] & ~direction[3] & ~direction[1]) begin
-                snake_head_x_delta_next = SNAKE_NV;
-                snake_head_y_delta_next = SNAKE_0V;
-                turns = turns + 1;
-                end
-            else begin
-                snake_head_x_delta_next = snake_head_x_delta_next;
-                snake_head_y_delta_next = snake_head_y_delta_next;
-                end
             snake_tail_x_delta_next = SNAKE_0V;
             snake_tail_y_delta_next = SNAKE_0V;
         end
         else
         begin
-        if (btn[0] & ~direction[0] & ~direction[2]) begin // turn
+        if (btn[0] && ~direction[0] && ~direction[2]) begin // turn
         snake_head_x_delta_next = SNAKE_0V;
         snake_head_y_delta_next = SNAKE_PV;
         turn_x = turn_x | (snake_head_x << (10 * turns));
         turn_y = turn_y | (snake_head_y << (10 * turns));
-        turns = turns + 1;
+        turns = turns + 5'b00001;
         end
-    else if (btn[1] & ~direction[1] & ~direction[3]) begin
+    else if (btn[1] && ~direction[1] && ~direction[3]) begin
         snake_head_x_delta_next = SNAKE_PV;
         snake_head_y_delta_next = SNAKE_0V;
         turn_x = turn_x | (snake_head_x << (10 * turns));
         turn_y = turn_y | (snake_head_y << (10 * turns));
-        turns = turns + 1;
+        turns = turns + 5'b00001;
         end
-    else if (btn[2] & ~direction[2] & ~direction[0]) begin
+    else if (btn[2] && ~direction[2] && ~direction[0]) begin
         snake_head_x_delta_next = SNAKE_0V;
         snake_head_y_delta_next = SNAKE_NV;
         turn_x = turn_x | (snake_head_x << (10 * turns));
         turn_y = turn_y | (snake_head_y << (10 * turns));
-        turns = turns + 1;
+        turns = turns + 5'b00001;
         end
-    else if (btn[3] & ~direction[3] & ~direction[1]) begin
+    else if (btn[3] && ~direction[3] && ~direction[1]) begin
         snake_head_x_delta_next = SNAKE_NV;
         snake_head_y_delta_next = SNAKE_0V;
         turn_x = turn_x | (snake_head_x << (10 * turns));
         turn_y = turn_y | (snake_head_y << (10 * turns));
-        turns = turns + 1;
+        turns = turns + 5'b00001;
         end
     else begin
         snake_head_x_delta_next = snake_head_x_delta_next;

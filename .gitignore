@@ -91,3 +91,5 @@ Verilog_Snake/Verilog_Snake.xpr
 *.jou
 *.log
 *.jou
+*.xml
+*.rst
