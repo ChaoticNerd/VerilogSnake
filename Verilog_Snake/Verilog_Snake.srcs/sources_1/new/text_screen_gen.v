@@ -23,7 +23,7 @@
 module text_screen_gen(
     input wire clk,
     input wire video_on,
-    input wire [2:0] btn,
+    input wire [3:0] btn,
     input wire [6:0] sw,
     input wire [9:0] pixel_x, pixel_y,
     output reg [2:0] rgb_text

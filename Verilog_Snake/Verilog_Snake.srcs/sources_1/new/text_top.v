@@ -22,7 +22,7 @@
 
 module text_top(
     input wire clk, reset,
-    input wire [2:0] btn,
+    input wire [3:0] btn,
     input wire [6:0] sw,
     output wire hsync, vsync,
     output wire [2:0] rgb
