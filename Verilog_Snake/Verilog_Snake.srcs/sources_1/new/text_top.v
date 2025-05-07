@@ -40,8 +40,8 @@ module text_top(
        .video(video_on), .p_tick(pixel_tick),
        .pixel_x(pixel_x), .pixel_y(pixel_y));
    // font generation circuit
-   snake_text text_gen_unit (.clk(clk), .text_on(video_on),
-   .pix_x(pixel_x), .pix_y(pixel_y), .text_rgb(rgb_next));
+   text_screen_gen text_gen_unit (.clk(clk), .video_on(video_on),
+   .pixel_x(pixel_x), .pixel_y(pixel_y), .rgb_text(rgb_next));
    // rgb buffer
    always @(posedge clk)
       if (pixel_tick)

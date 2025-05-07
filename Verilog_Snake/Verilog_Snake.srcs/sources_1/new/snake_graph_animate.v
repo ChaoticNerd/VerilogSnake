@@ -161,7 +161,7 @@ else if (turns == 1) begin
     end
 else if (turns >= 2) begin
     fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
-    //i = 1;
+   //i = 1;
     //if (turns > 32) begin
     //    turns = 5;
     //end
@@ -171,7 +171,7 @@ else if (turns >= 2) begin
     // bit call HAS to be constant...
     // no i just have to concatenate ALL 10 bits in the for loop
         // use a for loop to return a 1 for pixels between each body part
-        for (i = 1; i < turns; i = i + 1) begin
+     /*   for (i = 1; i < turns; i = i + 1) begin
             // check ALL body parts and if it runs into a false it breaks?
             // no....
             turns1x = {turn_x[i*10-1],turn_x[i* 10-2],turn_x[i*10-3],turn_x[i*10-4],turn_x[i*10-5],turn_x[i*10-6],turn_x[i*10-7],turn_x[i*10-8],turn_x[i*10-9],turn_x[i*10-10]};
@@ -196,7 +196,7 @@ else if (turns >= 2) begin
             // in short it is checking OR for body parts. it is a SOP.
             // ((snake_tail_y <= pix_y) && (pix_y <= turn_y[i]) && (snake_tail_x == turn[x])) || etc.
             //i = turns + 1;
-        end
+        end*/
         case(direction)
         4'b0001 : snake_head_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x))); // up
         4'b0010 : snake_head_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y))); // right

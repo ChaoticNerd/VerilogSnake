@@ -13,10 +13,10 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module snake_top(
-    input wire clk, reset,
+    input  clk, reset,
     input [0:3] btn,
-    output reg hsync, vsync,
-    output reg [0:11] vga
+    output  hsync, vsync,
+    output [0:11] vga
     );
     
     wire video_on, eaten;

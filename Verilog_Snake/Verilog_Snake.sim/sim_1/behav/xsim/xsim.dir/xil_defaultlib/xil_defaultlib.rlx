@@ -3,5 +3,10 @@
 Oct 14 2022
 05:20:55
 C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.sim/sim_1/behav/xsim/glbl.v,1744756337,verilog,,,,glbl,,,,,,,,
-C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v,1744996849,verilog,,,,vga_TB,,,,,,,,
-C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v,1744996849,verilog,,C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v,,vga_sync,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/Char_test.v,1746588183,verilog,,,,Char_test,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/vga_TB.v,1745125873,verilog,,,,vga_TB,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/Font_ROM.v,1744756976,verilog,,C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/text_screen_gen.v,,Font_ROM,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/text_screen_gen.v,1746588183,verilog,,C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/text_top.v,,text_screen_gen,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/text_top.v,1746590514,verilog,,C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v,,text_top,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v,1745125873,verilog,,C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/xilinx_dual_port_ram_sync.v,,vga_sync,,,,,,,,
+C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/xilinx_dual_port_ram_sync.v,1746500352,verilog,,C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/Char_test.v,,xilinx_dual_port_ram_sync,,,,,,,,
