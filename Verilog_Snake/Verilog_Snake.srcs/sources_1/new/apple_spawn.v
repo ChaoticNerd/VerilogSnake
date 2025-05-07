@@ -27,7 +27,7 @@ module apple_spawn(
     
     always @(posedge eaten) begin
         // $urandom for unsigned random values
-        x_pix = $urandom_range(MAX_X, MIN_X);
-        y_pix = $urandom_range(MAX_Y, MIN_Y);
+        pix_x = $urandom_range(MAX_X, MIN_X);
+        pix_y = $urandom_range(MAX_Y, MIN_Y);
     end
 endmodule

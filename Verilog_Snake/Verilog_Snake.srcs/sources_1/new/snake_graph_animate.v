@@ -25,7 +25,7 @@ module snake_graph_animate(
         input wire reset,
         input wire video_on, eaten,
         input wire [3:0] btn,
-        input wire [9:0] apple_x, apple_y,
+        //input wire [9:0] apple_x, apple_y,
         input wire [9:0] pix_x,
         input wire [9:0] pix_y,
         
@@ -42,9 +42,9 @@ localparam MIN_Y = 208;
 
 // Location of fruit
 reg  [9:0] FRUIT_X_REG, FRUIT_Y_REG;
-wire [9:0] FRUIT_X_NEXT, FRUIT_Y_NEXT;
+reg [9:0] FRUIT_X_NEXT, FRUIT_Y_NEXT;
 
-// screen reset time, based on beginning and end of screen
+// screen refresh time, based on beginning and end of screen
 wire refr_tick;
 
 // snake positions
@@ -114,7 +114,8 @@ reg [9:0] turn_x_temp, turn_y_temp;
 // HOW IT IS NOT FUCKNG RUNNING.
 always @(posedge clk, posedge reset) begin
     if (reset) begin
-        fruit_on = (apple_x == pix_x) && (apple_y == pix_y);
+        //fruit_on = (apple_x == pix_x) && (apple_y == pix_y);
+        //snake_on = (snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0]);
         snake_head_x_reg <= 320;
         snake_head_y_reg <= 240;
         snake_tail_x_reg <= 318;
@@ -128,6 +129,7 @@ always @(posedge clk, posedge reset) begin
     end
     else begin
         fruit_on = (apple_x == pix_x) && (apple_y == pix_y);
+        snake_on = (snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0]);
         snake_head_x_reg <= snake_head_x_next;
         snake_head_y_reg <= snake_head_y_next;
         snake_tail_x_reg <= snake_tail_x_next;
@@ -146,20 +148,20 @@ assign refr_tick = (pix_y==MAX_Y) && (pix_x==MAX_X);
 
 // turn on snake and appple if applicable
 
-always@(*) begin
+always@(posedge clk) begin
 // check turns
 // turns being 0 means snake is a straight line like -------
 // in short: just check between head and tail 
 if (turns == 5'b00000) begin
-    fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
+    //fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
     // check direction
     // wait i have cases
     case(direction)
-        4'b0001 : snake_on = ((snake_tail_y <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x)); // up
-        4'b0010 : snake_on = ((snake_tail_x <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y)); // right
-        4'b0100 : snake_on = ((snake_head_y <= pix_y) && (pix_y <= snake_tail_y) && (pix_x == snake_head_x)); // down
-        4'b1000 : snake_on = ((snake_head_x <= pix_x) && (pix_x <= snake_tail_x) && (pix_x == snake_head_y)); // left
-        default : snake_on = snake_on;
+        4'b0001 : snake_head_on = ((snake_tail_y <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x)); // up
+        4'b0010 : snake_head_on = ((snake_tail_x <= pix_x) && (pix_x <= snake_head_x) && (pix_y == snake_head_y)); // right
+        4'b0100 : snake_head_on = ((snake_head_y <= pix_y) && (pix_y <= snake_tail_y) && (pix_x == snake_head_x)); // down
+        4'b1000 : snake_head_on = ((snake_head_x <= pix_x) && (pix_x <= snake_tail_x) && (pix_y == snake_head_y)); // left
+        default : snake_head_on = snake_head_on;
     endcase
     //assign snake_on = (snake_head_x <= snake_tail_x) && (snake_head_y <= snake_tail_y);
 end
@@ -171,42 +173,32 @@ end
 //  |
 // therefore: snake on is between head and first turn, then first turn and tail
 else if (turns == 5'b00001) begin
-    fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
+    //fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
     // check if snake tail is above, below, right, or left of turn, then fill accordingly
     if (snake_tail_x < turn_x[9:0]) begin
-        snake_tail_on = ((snake_tail_x <= pix_x) && (pix_x <= turn_x[9:0]) && (pix_y == snake_tail_y));
+        snake_tail_on = (((snake_tail_x <= pix_x) && (pix_x <= turn_x[9:0])) && (pix_y == snake_tail_y));
     end
     else if (snake_tail_x > turn_x[9:0]) begin
-        snake_tail_on = ((turn_x[9:0] <= pix_x) && (pix_x <= snake_tail_x) && (pix_y == snake_tail_y));
+        snake_tail_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_tail_x)) && (pix_y == snake_tail_y));
     end
     else if (snake_tail_y < turn_y[9:0]) begin
-        snake_tail_on = ((snake_tail_y <= pix_y) && (pix_y <= turn_y[9:0]) && (pix_x == snake_tail_x));
+        snake_tail_on = (((snake_tail_y <= pix_y) && (pix_y <= turn_y[9:0])) && (pix_x == snake_tail_x));
     end
     else if (snake_tail_y > turn_y[9:0]) begin
-        snake_tail_on = ((turn_y[9:0] <= pix_y) && (pix_y <= snake_tail_y) && (pix_x == snake_tail_x));
+        snake_tail_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_tail_y)) && (pix_x == snake_tail_x));
     end
     // then check direction head is going, and fill behind it to turn
     case(direction)
         4'b0001 : snake_head_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x))); // up
-        4'b0010 : snake_head_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y))); // right
+        4'b0010 : snake_head_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_y == snake_head_y))); // right
         4'b0100 : snake_head_on = (((snake_head_y <= pix_y) && (pix_y <= turn_y[9:0]) && (pix_x == snake_head_x))); // down
-        4'b1000 : snake_head_on = (((snake_head_x <= pix_x) && (pix_x <= turn_x[9:0]) && (pix_x == snake_head_y))); // left
+        4'b1000 : snake_head_on = (((snake_head_x <= pix_x) && (pix_x <= turn_x[9:0]) && (pix_y == snake_head_y))); // left
         default : snake_head_on = snake_head_on;
     endcase
-    snake_on = snake_head_on || snake_tail_on;
+    //snake_on = snake_head_on || snake_tail_on;
     end
 else if (turns > 5'b00001) begin
-    fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
-        // use a for loop to check each turn
-        for (i = 1; i < turns; i = i + 1) begin
-            // since i can't use turn_x[(i*10 - 1):((i - 1) *10)]
-            // this literally takes 10 bits from turn_x and appends them
-            // turns1 takes the first turn, then turns2 takes the second
-            // in a 3 part snake: head is the head to first turn
-            // 1st body part is between turns1 and turns2
-            // then turns2 to tail
-else if (turns > 5'b00001) begin
-    fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
+    //fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
    //i = 1;
     //if (turns > 32) begin
     //    turns = 5;
@@ -249,9 +241,9 @@ else if (turns > 5'b00001) begin
         end
         case(direction)
         4'b0001 : snake_head_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x))); // up
-        4'b0010 : snake_head_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y))); // right
+        4'b0010 : snake_head_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_y == snake_head_y))); // right
         4'b0100 : snake_head_on = (((snake_head_y <= pix_y) && (pix_y <= turn_y[9:0]) && (pix_x == snake_head_x))); // down
-        4'b1000 : snake_head_on = (((snake_head_x <= pix_x) && (pix_x <= turn_x[9:0]) && (pix_x == snake_head_y))); // left
+        4'b1000 : snake_head_on = (((snake_head_x <= pix_x) && (pix_x <= turn_x[9:0]) && (pix_y == snake_head_y))); // left
         default : snake_head_on = snake_head_on;
     endcase
     // check tail cases. turns2 should be updated to the last turn case at this point
@@ -267,12 +259,12 @@ else if (turns > 5'b00001) begin
     else if (snake_tail_y > turns2y) begin
         snake_tail_on = ((turns2y <= pix_y) && (pix_y <= snake_tail_y) && (pix_x == snake_tail_x));
     end
-    snake_on = snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0];
-end
+    
 end
 
+
     // maybe delete turns by checking if they are nonzero and total distance from head is greater than snake length?
-end
+
 
 
 // refer to ball movement bc its more similar
@@ -286,11 +278,11 @@ assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_
     // fix eaten??
     //---------------------------------- FRUIT ---------------------------------------
     // , posedge reset, posedge eaten
-    always @(*) begin
+    always @(posedge clk, posedge eaten) begin
         if(eaten)begin
             // set a new fruit location
-            FRUIT_X_REG <= FRUIT_X_NEXT;
-            FRUIT_Y_REG <= FRUIT_Y_NEXT;
+            FRUIT_X_NEXT = $urandom_range(MAX_X, MIN_X);
+            FRUIT_Y_NEXT = $urandom_range(MAX_Y, MIN_Y);
             // keep tail the same
             snake_tail_x_delta_next = SNAKE_0V;
             snake_tail_y_delta_next = SNAKE_0V;
@@ -382,6 +374,11 @@ assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_
 
 // so THIS runs...
 always @* begin
+    //snake_head_x_reg = 320;
+    //snake_head_y_reg = 240;
+    //snake_head_on = ((snake_head_x_reg == pix_x) && (snake_head_y_reg == pix_y));
+    snake_on = (snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0]);
+    fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
     if (~video_on) begin
         graph_rgb = 3'b000; // off
     end
