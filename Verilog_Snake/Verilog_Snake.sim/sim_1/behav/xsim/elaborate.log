@@ -1,8 +1,19 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot vga_TB_behav xil_defaultlib.vga_TB xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Char_test_behav xil_defaultlib.Char_test xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 7 for port 'sw' [C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sim_1/new/Char_test.v:49]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.vga_sync
+Compiling module xil_defaultlib.Font_ROM
+Compiling module xil_defaultlib.xilinx_dual_port_ram_sync(ADDR_W...
+Compiling module xil_defaultlib.text_screen_gen
+Compiling module xil_defaultlib.text_top
+Compiling module xil_defaultlib.Char_test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot Char_test_behav

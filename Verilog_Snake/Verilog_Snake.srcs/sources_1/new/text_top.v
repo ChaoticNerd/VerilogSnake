@@ -37,12 +37,11 @@ module text_top(
    // instantiate vga sync circuit
    vga_sync vsync_unit
       (.clk(clk), .reset(reset), .hsync(hsync), .vsync(vsync),
-       .video_on(video_on), .p_tick(pixel_tick),
+       .video(video_on), .p_tick(pixel_tick),
        .pixel_x(pixel_x), .pixel_y(pixel_y));
    // font generation circuit
-   text_screen_gen text_gen_unit (.clk(clk), .reset(reset), .video_on(video_on),
-       .btn(btn), .sw(sw), .pixel_x(pixel_x),
-       .pixel_y(pixel_y), .text_rgb(rgb_next));
+   text_screen_gen text_gen_unit (.clk(clk), .video_on(video_on),
+   .pixel_x(pixel_x), .pixel_y(pixel_y), .rgb_text(rgb_next));
    // rgb buffer
    always @(posedge clk)
       if (pixel_tick)

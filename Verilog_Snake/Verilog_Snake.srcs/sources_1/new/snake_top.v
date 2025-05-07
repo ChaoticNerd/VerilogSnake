@@ -13,10 +13,10 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module snake_top(
-    input wire clk, reset,
+    input  clk, reset,
     input [0:3] btn,
-    output reg hsync, vsync,
-    output reg [0:11] vga
+    output  hsync, vsync,
+    output [0:11] vga
     );
     
     wire video_on, eaten;
@@ -25,7 +25,7 @@ module snake_top(
     
     wire [2:0] graph_rgb;
     
-    apple_spawn(.eaten(eaten), .pix_x(apple_x), .pix_y(apple_y));
+    apple_spawn(.eaten(eaten), .x_pix(apple_x), .y_pix(apple_y));
     // another variable to connect apple_x and apple_y to snake_graph_animate
     snake_graph_animate snake_graph (.clk(clk), .reset(reset), .video_on(video_on), .eaten(eaten), 
                                     .btn(btn), .apple_x(apple_x), .apple_y(apple_y) ,.pix_x(pix_x), .pix_y(pix_y), .graph_rgb(graph_rgb));

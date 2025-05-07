@@ -38,7 +38,7 @@ module snake_text(
    wire font_bit, score_on, logo_on, rule_on, over_on, hiscoreres_on, scoreres_on ;
    wire [7:0] rule_rom_addr, score_rom_addr;
     
-   font_rom font_unit(.clk(clk), .addr(rom_addr), .data(font_word));
+   Font_ROM font_unit(.clk(clk), .addr(rom_addr), .data(font_word));
    
    //score regions (top left corner)
    //scale 16 by 32

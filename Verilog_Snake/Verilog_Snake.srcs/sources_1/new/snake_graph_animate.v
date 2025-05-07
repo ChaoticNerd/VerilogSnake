@@ -205,6 +205,21 @@ else if (turns > 5'b00001) begin
             // in a 3 part snake: head is the head to first turn
             // 1st body part is between turns1 and turns2
             // then turns2 to tail
+else if (turns > 5'b00001) begin
+    fruit_on = (apple_x <= pix_x) && (apple_y <= pix_y);
+   //i = 1;
+    //if (turns > 32) begin
+    //    turns = 5;
+    //end
+    //turns = 32;
+    // num turns = num shifts
+    // foor loop n if statement?
+    // bit call HAS to be constant...
+    // no i just have to concatenate ALL 10 bits in the for loop
+        // use a for loop to return a 1 for pixels between each body part
+     for (i = 1; i < turns; i = i + 1) begin
+            // check ALL body parts and if it runs into a false it breaks?
+            // no....
             turns1x = {turn_x[i*10-1],turn_x[i* 10-2],turn_x[i*10-3],turn_x[i*10-4],turn_x[i*10-5],turn_x[i*10-6],turn_x[i*10-7],turn_x[i*10-8],turn_x[i*10-9],turn_x[i*10-10]};
             turns1y = {turn_y[i*10-1],turn_y[i* 10-2],turn_y[i*10-3],turn_y[i*10-4],turn_y[i*10-5],turn_y[i*10-6],turn_y[i*10-7],turn_y[i*10-8],turn_y[i*10-9],turn_y[i*10-10]};
             turns2x = {turn_x[(i + 1)*10-1],turn_x[(i + 1)* 10-2],turn_x[(i + 1)*10-3],turn_x[(i + 1)*10-4],turn_x[(i + 1)*10-5],turn_x[(i + 1)*10-6],turn_x[(i + 1)*10-7],turn_x[(i + 1)*10-8],turn_x[(i + 1)*10-9],turn_x[(i + 1)*10-10]};
@@ -226,6 +241,12 @@ else if (turns > 5'b00001) begin
             end
         end
         // then check head cases
+            // note: fill in BOTH X AND Y. CHECK IF X/Y VALUE SAME THEN CHECK IF PIX IS BETWEEN Y/X
+            // use OR for snake_on. we are not filling in a square of snake. they are individual lines
+            // in short it is checking OR for body parts. it is a SOP.
+            // ((snake_tail_y <= pix_y) && (pix_y <= turn_y[i]) && (snake_tail_x == turn[x])) || etc.
+            //i = turns + 1;
+        end
         case(direction)
         4'b0001 : snake_head_on = (((turn_y[9:0] <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x))); // up
         4'b0010 : snake_head_on = (((turn_x[9:0] <= pix_x) && (pix_x <= snake_head_x) && (pix_x == snake_head_y))); // right
@@ -251,7 +272,7 @@ end
 end
 
     // maybe delete turns by checking if they are nonzero and total distance from head is greater than snake length?
-//end
+end
 
 
 // refer to ball movement bc its more similar

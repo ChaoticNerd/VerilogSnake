@@ -66,6 +66,8 @@ module text_screen_gen(
       #(.ADDR_WIDTH(12), .DATA_WIDTH(7)) video_ram
       (.clk(clk), .we(we), .addr_a(addr_w), .addr_b(addr_r),
        .din_a(din), .dout_a(), .dout_b(dout));
+   
+   //registers
    always @(posedge clk)
       begin
          cur_x_reg <= cur_x_next;
