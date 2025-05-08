@@ -16,22 +16,25 @@ module snake_top(
     input  clk, reset,
     input [0:3] btn,
     output  hsync, vsync,
-    output [0:11] vga
+    output reg [0:3] red, green, blue,
+    output clk_out
     );
     
     wire video_on, eaten;
     wire [9:0] pix_x, pix_y;
-    wire [9:0] apple_x, apple_y;
+    wire[3:0] text_on;
     
-    wire [2:0] graph_rgb;
-    
-    apple_spawn(.eaten(eaten), .x_pix(apple_x), .y_pix(apple_y));
+    //apple_spawn e(.eaten(eaten), .x_pix(apple_x), .y_pix(apple_y));
     // another variable to connect apple_x and apple_y to snake_graph_animate
-    snake_graph_animate snake_graph (.clk(clk), .reset(reset), .video_on(video_on), .eaten(eaten), 
-                                    .btn(btn), .apple_x(apple_x), .apple_y(apple_y) ,.pix_x(pix_x), .pix_y(pix_y), .graph_rgb(graph_rgb));
+    vga_sync vga(.clk(clk), .vga_h_sync(hsync), .vga_v_sync(vsync), .inDisplayArea(video_on), 
+                .CounterX(pix_x), .CounterY(pix_y), .clk_out(clk_out));
+    
+    /*snake_graph_animate snake_graph (.clk(clk), .reset(reset), .eaten(eaten), .video_on(video_on),
+                                    .btn(btn) , .pix_x(pix_x),
+                                    .pix_y(pix_y), .graph_rgb(graph_rgb));
                                     
     //snake_screen screen (.display(video_on), .x_val(pix_x), .y_val(pix_y), .screen_RGB(graph_rgb));       
 
-    text_top text(.clk(clk), .reset(reset), .btn(btn), .sw(), .hsync(hsync), .vsync(vsync), .rgb(graph_rgb));
-                     
+    snake_text text(.clk(clk), .pix_x(pix_X), .pix_y(pix_y),.text_on(text_on), .text_rgb());
+    */
 endmodule

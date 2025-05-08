@@ -130,56 +130,56 @@ module snake_text(
    //display: Score:###
    //        
    assign scoreres_on = (pix_y[9:5]==0) && (pix_x[9:4]<16);
-   assign row_addr_s = pix_y[4:1];
-   assign bit_addr_s = pix_x[3:1];
+   assign row_addr_sr = pix_y[4:1];
+   assign bit_addr_sr = pix_x[3:1];
    assign score_rom_addr = {pix_y[5:4], pix_x[6:3]};
    always @*
         case(score_rom_addr)
             //row 1
-            6'h00: char_addr_s = 7'h53;// S
-            6'h01: char_addr_s = 7'h63;// c
-            6'h02: char_addr_s = 7'h6f;// o
-            6'h03: char_addr_s = 7'h72;// r
-            6'h04: char_addr_s = 7'h65;// e
-            6'h05: char_addr_s = 7'h3a;// :
-            6'h06: char_addr_s = {3'b011, dig2};
-            6'h07: char_addr_s = {3'b011, dig1};
-            6'h08: char_addr_s = {3'b011, dig0};
-            6'h09: char_addr_s = 7'h00;//
-            6'h0a: char_addr_s = 7'h00;//
-            6'h0b: char_addr_s = 7'h00;//
-            6'h0c: char_addr_s = 7'h00;//
-            6'h0d: char_addr_s = 7'h00;//
-            6'h0e: char_addr_s = 7'h00;//
-            6'h0f: char_addr_s = 7'h00;// 
+            6'h00: char_addr_sr = 7'h53;// S
+            6'h01: char_addr_sr = 7'h63;// c
+            6'h02: char_addr_sr = 7'h6f;// o
+            6'h03: char_addr_sr = 7'h72;// r
+            6'h04: char_addr_sr = 7'h65;// e
+            6'h05: char_addr_sr = 7'h3a;// :
+            6'h06: char_addr_sr = {3'b011, dig2};
+            6'h07: char_addr_sr = {3'b011, dig1};
+            6'h08: char_addr_sr = {3'b011, dig0};
+            6'h09: char_addr_sr = 7'h00;//
+            6'h0a: char_addr_sr = 7'h00;//
+            6'h0b: char_addr_sr = 7'h00;//
+            6'h0c: char_addr_sr = 7'h00;//
+            6'h0d: char_addr_sr = 7'h00;//
+            6'h0e: char_addr_sr = 7'h00;//
+            6'h0f: char_addr_sr = 7'h00;// 
         endcase
    //Hi-Score Result region (undergame box)
    //scale
    //display: Score:###
    //        
    assign hiscoreres_on = (pix_y[9:5]==0) && (pix_x[9:4]<16);
-   assign row_addr_s = pix_y[4:1];
-   assign bit_addr_s = pix_x[3:1];
+   assign row_addr_hsr = pix_y[4:1];
+   assign bit_addr_hsr = pix_x[3:1];
    assign score_rom_addr = {pix_y[5:4], pix_x[6:3]};
    always @* begin
         case(score_rom_addr)
             //row 1
-            6'h00: char_addr_s = 7'h48;// H
-            6'h01: char_addr_s = 7'h69;// i
-            6'h02: char_addr_s = 7'h2d;// - 
-            6'h03: char_addr_s = 7'h53;// S
-            6'h04: char_addr_s = 7'h63;// c
-            6'h05: char_addr_s = 7'h6f;// o
-            6'h06: char_addr_s = 7'h65;// r
-            6'h07: char_addr_s = 7'h3a;// e
-            6'h08: char_addr_s = 7'h00;// :
-            6'h09: char_addr_s = {3'b011, hidig2};
-            6'h0a: char_addr_s = {3'b011, hidig1};
-            6'h0b: char_addr_s = {3'b011, hidig0};
-            6'h0c: char_addr_s = 7'h00;//
-            6'h0d: char_addr_s = 7'h00;//
-            6'h0e: char_addr_s = 7'h00;// 
-            6'h0f: char_addr_s = 7'h00;//  
+            6'h00: char_addr_hsr = 7'h48;// H
+            6'h01: char_addr_hsr = 7'h69;// i
+            6'h02: char_addr_hsr = 7'h2d;// - 
+            6'h03: char_addr_hsr = 7'h53;// S
+            6'h04: char_addr_hsr = 7'h63;// c
+            6'h05: char_addr_hsr = 7'h6f;// o
+            6'h06: char_addr_hsr = 7'h65;// r
+            6'h07: char_addr_hsr = 7'h3a;// e
+            6'h08: char_addr_hsr = 7'h00;// :
+            6'h09: char_addr_hsr = {3'b011, hidig2};
+            6'h0a: char_addr_hsr = {3'b011, hidig1};
+            6'h0b: char_addr_hsr = {3'b011, hidig0};
+            6'h0c: char_addr_hsr = 7'h00;//
+            6'h0d: char_addr_hsr = 7'h00;//
+            6'h0e: char_addr_hsr = 7'h00;// 
+            6'h0f: char_addr_hsr = 7'h00;//  
         endcase
    end
    // 

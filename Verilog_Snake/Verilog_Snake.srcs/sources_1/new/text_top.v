@@ -36,7 +36,7 @@ module text_top(
    // body
    // instantiate vga sync circuit
    vga_sync vsync_unit
-      (.clk(clk), .reset(reset), .hsync(hsync), .vsync(vsync),
+      (.clk(clk), .reset(reset), .vga_h_sync(hsync), .vga_v_sync(vsync),
        .video(video_on), .p_tick(pixel_tick),
        .pixel_x(pixel_x), .pixel_y(pixel_y));
    // font generation circuit
