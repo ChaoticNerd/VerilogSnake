@@ -67,7 +67,6 @@ initial begin
     reset = 1;
     pix_x = 319;
     pix_y = 240;
-    eaten = 0;
     btn = 4'b0010;
     apple_x = 320;
     apple_y = 239;
@@ -138,7 +137,7 @@ wire refr_tick;
 // snake positions
 wire [9:0] snake_head_x, snake_head_y, snake_tail_x, snake_tail_y; // current snake head/tail position
 wire [9:0] snake_head_x_next, snake_head_y_next, snake_tail_x_next, snake_tail_y_next; // next snake head/tail positions
-reg [9:0] snake_head_x_reg, snake_head_y_reg, snake_tail_x_reg, snake_tail_y_reg; // track snake position
+reg [9:0] snake_head_x_reg = 320, snake_head_y_reg = 240, snake_tail_x_reg = 318, snake_tail_y_reg = 240; // track snake position
 // direction is initialized to right
 assign snake_head_x = snake_head_x_reg;
 assign snake_head_y = snake_head_y_reg;
@@ -153,7 +152,6 @@ localparam SNAKE_NV = -1;
 reg snake_head_x_delta_next, snake_head_y_delta_next, snake_tail_x_delta_next, snake_tail_y_delta_next; // next snake head/tail velocity
 reg snake_head_x_delta_reg = SNAKE_PV, snake_head_y_delta_reg = SNAKE_0V; // current snake head velocity
 reg snake_tail_x_delta_reg = SNAKE_PV, snake_tail_y_delta_reg = SNAKE_0V; // current snake tail velocity
-integer snake_head_x_delta_int, snake_head_y_delta_int, snake_tail_x_delta_int, snake_tail_y_delta_int;
 
 // check if game has ended
 integer game_end = 0;
@@ -210,28 +208,29 @@ always @(posedge clk, posedge reset) begin
         snake_head_y_reg <= 240;
         snake_tail_x_reg <= 318;
         snake_tail_y_reg <= 240;
-        FRUIT_X_REG <= 0;
-        FRUIT_Y_REG <= 0;
-        turn_x <= 320'b0;
-        turn_y <= 320'b0;
-        turns1x <= 10'b0;
-        turns1y <= 10'b0;
-        turns2x <= 10'b0;
-        turns2y <= 10'b0;
-        turn_x_temp <= 10'b0;
-        turn_y_temp <= 10'b0;
-        snake_head_x_delta_reg = SNAKE_PV;
-        snake_head_y_delta_reg = SNAKE_0V; 
-        snake_tail_x_delta_reg = SNAKE_PV;
-        snake_tail_y_delta_reg = SNAKE_0V;
+        FRUIT_X_REG <= $urandom_range(MAX_X, MIN_X);
+        FRUIT_Y_REG <= $urandom_range(MAX_Y, MIN_Y);
+        turn_x <= 0;
+        turn_y <= 0;
+        turns1x <= 0;
+        turns1y <= 0;
+        turns2x <= 0;
+        turns2y <= 0;
+        turn_x_temp <= 0;
+        turn_y_temp <= 0;
+        snake_head_x_delta_reg <= SNAKE_PV;
+        snake_head_y_delta_reg <= SNAKE_0V; 
+        snake_tail_x_delta_reg <= SNAKE_PV;
+        snake_tail_y_delta_reg <= SNAKE_0V;
+        snake_head_x_delta_next <= SNAKE_PV;
+        snake_head_y_delta_next <= SNAKE_0V;
+        snake_tail_x_delta_next <= SNAKE_PV;
+        snake_tail_y_delta_next <= SNAKE_0V;
+        
         snake_on <= 0;
         snake_head_on <= 0;
         snake_tail_on <= 0;
         snake_parts <= 32'b0;
-        snake_head_x_delta_int = 0;
-        snake_head_y_delta_int = 0;
-        snake_tail_x_delta_int = 0;
-        snake_tail_y_delta_int = 0;
     end
     else begin
         //fruit_on = (apple_x == pix_x) && (apple_y == pix_y);
@@ -240,16 +239,12 @@ always @(posedge clk, posedge reset) begin
         snake_head_y_reg <= snake_head_y_next;
         snake_tail_x_reg <= snake_tail_x_next;
         snake_tail_y_reg <= snake_tail_y_next;
-        snake_head_x_delta_reg = snake_head_x_delta_next;
-        snake_head_y_delta_reg = snake_head_y_delta_next; 
-        snake_tail_x_delta_reg = snake_tail_x_delta_next;
-        snake_tail_y_delta_reg = snake_tail_y_delta_next;
-        snake_head_x_delta_int = snake_head_x_delta_int;
-        snake_head_y_delta_int = snake_head_y_delta_int;
-        snake_tail_x_delta_int = snake_tail_x_delta_int;
-        snake_tail_y_delta_int = snake_tail_y_delta_int;
         FRUIT_X_REG <= FRUIT_X_NEXT;
         FRUIT_Y_REG <= FRUIT_Y_NEXT;
+        snake_head_x_delta_reg <= snake_head_x_delta_next;
+        snake_head_y_delta_reg <= snake_head_y_delta_next;
+        snake_tail_x_delta_reg <= snake_tail_x_delta_next;
+        snake_tail_y_delta_reg <= snake_tail_y_delta_next;
     end
 end
 
@@ -263,9 +258,6 @@ always@(posedge clk) begin
 // turns being 0 means snake is a straight line like -------
 // in short: just check between head and tail 
 if (turns == 5'b00000) begin
-    //fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
-    // check direction
-    // wait i have cases
     case(direction)
         4'b0001 : snake_head_on = ((snake_tail_y <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x)); // up
         4'b0010 : snake_head_on = ((snake_tail_x <= pix_x) && (pix_x <= snake_head_x) && (pix_y == snake_head_y)); // right
@@ -273,7 +265,6 @@ if (turns == 5'b00000) begin
         4'b1000 : snake_head_on = ((snake_head_x <= pix_x) && (pix_x <= snake_tail_x) && (pix_y == snake_head_y)); // left
         default : snake_head_on = snake_head_on;
     endcase
-    //assign snake_on = (snake_head_x <= snake_tail_x) && (snake_head_y <= snake_tail_y);
 end
 
 // otherwise
@@ -379,17 +370,23 @@ end
 
 // refer to ball movement bc its more similar
 // at each tick, update position; else, keep position same
-assign snake_head_x_next = (clk) ? (snake_head_x_reg + snake_head_x_delta_int/*snake_head_x_delta_reg*/) : (snake_head_x_reg);
-assign snake_head_y_next = (clk) ? (snake_head_y_reg + snake_head_y_delta_int/*snake_head_y_delta_reg*/) : (snake_head_y_reg);
-assign snake_tail_x_next = (clk) ? (snake_tail_x_reg + snake_tail_x_delta_int/*snake_tail_x_delta_reg*/) : (snake_tail_x_reg);
-assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*snake_tail_y_delta_reg*/) : (snake_tail_y_reg);
+//assign snake_head_x_next = (clk) ? (snake_head_x_reg + snake_head_x_delta_int/*snake_head_x_delta_reg*/) : (snake_head_x_reg);
+//assign snake_head_y_next = (clk) ? (snake_head_y_reg + snake_head_y_delta_int/*snake_head_y_delta_reg*/) : (snake_head_y_reg);
+//assign snake_tail_x_next = (clk) ? (snake_tail_x_reg + snake_tail_x_delta_int/*snake_tail_x_delta_reg*/) : (snake_tail_x_reg);
+//assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*snake_tail_y_delta_reg*/) : (snake_tail_y_reg);
 
+// refer to ball movement bc its more similar
+// at each tick, update position; else, keep position same
+assign snake_head_x_next = (clk) ? (snake_head_x_reg + snake_head_x_delta_reg) : (snake_head_x_reg);
+assign snake_head_y_next = (clk) ? (snake_head_y_reg + snake_head_y_delta_reg) : (snake_head_y_reg);
+assign snake_tail_x_next = (clk) ? (snake_tail_x_reg + snake_tail_x_delta_reg) : (snake_tail_x_reg);
+assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_reg) : (snake_tail_y_reg);
 
     //note to self: add snake end
     // fix eaten??
     //---------------------------------- FRUIT ---------------------------------------
     // , posedge reset, posedge eaten
-    always @(*) begin
+    always @(posedge clk, posedge eaten) begin
         if(eaten)begin
             // set a new fruit location
             FRUIT_X_NEXT = $urandom_range(MAX_X, MIN_X);
@@ -397,8 +394,6 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*s
             // keep tail the same
             snake_tail_x_delta_next = SNAKE_0V;
             snake_tail_y_delta_next = SNAKE_0V;
-            snake_tail_x_delta_int = SNAKE_0V;
-            snake_tail_y_delta_int = SNAKE_0V;
             // update turns normally
         end
         else
@@ -410,8 +405,6 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*s
         direction = 4'b0001;
         snake_head_x_delta_next = SNAKE_0V;
         snake_head_y_delta_next = SNAKE_PV;
-        snake_head_x_delta_int = SNAKE_0V;        
-        snake_head_y_delta_int = SNAKE_PV;
         // add a turn, set turn location to turn list
         turn_x = turn_x | (snake_head_x_reg << (10 * turns));
         turn_y = turn_y | (snake_head_y_reg << (10 * turns));
@@ -421,8 +414,6 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*s
         direction = 4'b0010;
         snake_head_x_delta_next = SNAKE_PV;
         snake_head_y_delta_next = SNAKE_0V;
-        snake_head_x_delta_int = SNAKE_PV;
-        snake_head_y_delta_int = SNAKE_0V;
         turn_x = turn_x | (snake_head_x << (10 * turns));
         turn_y = turn_y | (snake_head_y << (10 * turns));
         turns = turns + 5'b00001;
@@ -431,8 +422,6 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*s
         direction = 4'b0100;
         snake_head_x_delta_next = SNAKE_0V;
         snake_head_y_delta_next = SNAKE_NV;
-        snake_head_x_delta_int = SNAKE_0V;
-        snake_head_y_delta_int = SNAKE_NV;
         turn_x = turn_x | (snake_head_x << (10 * turns));
         turn_y = turn_y | (snake_head_y << (10 * turns));
         turns = turns + 5'b00001;
@@ -441,8 +430,6 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*s
         direction = 4'b1000;
         snake_head_x_delta_next = SNAKE_NV;
         snake_head_y_delta_next = SNAKE_0V;
-        snake_head_x_delta_int = SNAKE_NV;
-        snake_head_y_delta_int = SNAKE_0V;
         turn_x = turn_x | (snake_head_x << (10 * turns));
         turn_y = turn_y | (snake_head_y << (10 * turns));
         turns = turns + 5'b00001;
@@ -450,16 +437,12 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*s
     else begin
         snake_head_x_delta_next = snake_head_x_delta_next;
         snake_head_y_delta_next = snake_head_y_delta_next;
-        snake_head_x_delta_int = snake_head_x_delta_int;
-        snake_head_y_delta_int = snake_head_y_delta_int;
     end
     // add tail location check
     if (turns == 0) begin
         // no turns means tail velociy is same as head velocity
         snake_tail_x_delta_next = snake_head_x_delta_next;
         snake_tail_y_delta_next = snake_head_y_delta_next;
-        snake_tail_x_delta_int = snake_head_x_delta_int;
-        snake_tail_y_delta_int = snake_head_y_delta_int;
     end
     else begin
         // stores latest turn
@@ -474,32 +457,22 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*s
         if (snake_tail_x < turn_x_temp) begin
             snake_tail_x_delta_next = SNAKE_PV;
             snake_tail_y_delta_next = SNAKE_0V;
-            snake_tail_x_delta_int = SNAKE_PV;
-            snake_tail_y_delta_int = SNAKE_0V;
         end
         else if (snake_tail_x > turn_x_temp) begin
             snake_tail_x_delta_next = SNAKE_NV;
             snake_tail_y_delta_next = SNAKE_0V;
-            snake_tail_x_delta_int = SNAKE_NV;
-            snake_tail_y_delta_int = SNAKE_0V;
         end
         else if (snake_tail_y < turn_y_temp) begin
             snake_tail_x_delta_next = SNAKE_0V;
             snake_tail_y_delta_next = SNAKE_PV;
-            snake_tail_x_delta_int = SNAKE_0V;
-            snake_tail_y_delta_int = SNAKE_PV;
         end
         else if (snake_tail_y > turn_y_temp) begin
             snake_tail_x_delta_next = SNAKE_0V;
             snake_tail_y_delta_next = SNAKE_NV;
-            snake_tail_x_delta_int = SNAKE_0V;
-            snake_tail_y_delta_int = SNAKE_PV;
         end
         else begin
             snake_tail_x_delta_next = snake_tail_x_delta_next;
             snake_tail_y_delta_next = snake_tail_y_delta_next;
-            snake_tail_x_delta_int = snake_tail_x_delta_int;
-            snake_tail_y_delta_int = snake_tail_y_delta_int;
         end
     end        
     // check location is less than or more than latest turn or head
@@ -532,16 +505,16 @@ always @* begin
 end
 
 initial begin
-    btn = 4'b0010;
-    #20;
     btn = 4'b0001;
+    #20;
+    btn = 4'b0010;
     eaten = 1;
     #5;
     eaten = 0;
     #10;
-    btn = 4'b1000;
-    #10;
     btn = 4'b0100;
+    #10;
+    btn = 4'b1000;
     #20;
 end
 

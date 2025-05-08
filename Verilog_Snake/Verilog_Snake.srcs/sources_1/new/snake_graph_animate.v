@@ -25,7 +25,7 @@ module snake_graph_animate(
         input wire reset,
         input wire video_on, eaten,
         input wire [3:0] btn,
-        //input wire [9:0] apple_x, apple_y,
+        input wire [9:0] apple_x, apple_y,
         input wire [9:0] pix_x,
         input wire [9:0] pix_y,
         
@@ -50,7 +50,7 @@ wire refr_tick;
 // snake positions
 wire [9:0] snake_head_x, snake_head_y, snake_tail_x, snake_tail_y; // current snake head/tail position
 wire [9:0] snake_head_x_next, snake_head_y_next, snake_tail_x_next, snake_tail_y_next; // next snake head/tail positions
-reg [9:0] snake_head_x_reg, snake_head_y_reg, snake_tail_x_reg, snake_tail_y_reg; // track snake position
+reg [9:0] snake_head_x_reg = 320, snake_head_y_reg = 240, snake_tail_x_reg = 318, snake_tail_y_reg = 240; // track snake position
 // direction is initialized to right
 assign snake_head_x = snake_head_x_reg;
 assign snake_head_y = snake_head_y_reg;
@@ -116,20 +116,38 @@ always @(posedge clk, posedge reset) begin
     if (reset) begin
         //fruit_on = (apple_x == pix_x) && (apple_y == pix_y);
         //snake_on = (snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0]);
+        // make it so that it stays still until a movement is made
         snake_head_x_reg <= 320;
         snake_head_y_reg <= 240;
         snake_tail_x_reg <= 318;
         snake_tail_y_reg <= 240;
-        FRUIT_X_REG <= 0;
-        FRUIT_Y_REG <= 0;
+        FRUIT_X_REG <= $urandom_range(MAX_X, MIN_X);
+        FRUIT_Y_REG <= $urandom_range(MAX_Y, MIN_Y);
+        turn_x <= 0;
+        turn_y <= 0;
+        turns1x <= 0;
+        turns1y <= 0;
+        turns2x <= 0;
+        turns2y <= 0;
+        turn_x_temp <= 0;
+        turn_y_temp <= 0;
         snake_head_x_delta_reg <= SNAKE_PV;
-        snake_head_y_delta_reg <= SNAKE_0V;
+        snake_head_y_delta_reg <= SNAKE_0V; 
         snake_tail_x_delta_reg <= SNAKE_PV;
         snake_tail_y_delta_reg <= SNAKE_0V;
+        snake_head_x_delta_next <= SNAKE_PV;
+        snake_head_y_delta_next <= SNAKE_0V;
+        snake_tail_x_delta_next <= SNAKE_PV;
+        snake_tail_y_delta_next <= SNAKE_0V;
+        
+        snake_on <= 0;
+        snake_head_on <= 0;
+        snake_tail_on <= 0;
+        snake_parts <= 32'b0;
     end
     else begin
-        fruit_on = (apple_x == pix_x) && (apple_y == pix_y);
-        snake_on = (snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0]);
+        //fruit_on = (apple_x == pix_x) && (apple_y == pix_y);
+        //snake_on = (snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0]);
         snake_head_x_reg <= snake_head_x_next;
         snake_head_y_reg <= snake_head_y_next;
         snake_tail_x_reg <= snake_tail_x_next;
@@ -153,9 +171,6 @@ always@(posedge clk) begin
 // turns being 0 means snake is a straight line like -------
 // in short: just check between head and tail 
 if (turns == 5'b00000) begin
-    //fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
-    // check direction
-    // wait i have cases
     case(direction)
         4'b0001 : snake_head_on = ((snake_tail_y <= pix_y) && (pix_y <= snake_head_y) && (pix_x == snake_head_x)); // up
         4'b0010 : snake_head_on = ((snake_tail_x <= pix_x) && (pix_x <= snake_head_x) && (pix_y == snake_head_y)); // right
@@ -163,7 +178,6 @@ if (turns == 5'b00000) begin
         4'b1000 : snake_head_on = ((snake_head_x <= pix_x) && (pix_x <= snake_tail_x) && (pix_y == snake_head_y)); // left
         default : snake_head_on = snake_head_on;
     endcase
-    //assign snake_on = (snake_head_x <= snake_tail_x) && (snake_head_y <= snake_tail_y);
 end
 
 // otherwise
@@ -269,10 +283,17 @@ end
 
 // refer to ball movement bc its more similar
 // at each tick, update position; else, keep position same
-assign snake_head_x_next = (refr_tick) ? (snake_head_x_reg + snake_head_x_delta_reg) : (snake_head_x_reg);
-assign snake_head_y_next = (refr_tick) ? (snake_head_y_reg + snake_head_y_delta_reg) : (snake_head_y_reg);
-assign snake_tail_x_next = (refr_tick) ? (snake_tail_x_reg + snake_tail_x_delta_reg) : (snake_tail_x_reg);
-assign snake_tail_y_next = (refr_tick) ? (snake_tail_y_reg + snake_tail_y_delta_reg) : (snake_tail_y_reg);
+//assign snake_head_x_next = (clk) ? (snake_head_x_reg + snake_head_x_delta_int/*snake_head_x_delta_reg*/) : (snake_head_x_reg);
+//assign snake_head_y_next = (clk) ? (snake_head_y_reg + snake_head_y_delta_int/*snake_head_y_delta_reg*/) : (snake_head_y_reg);
+//assign snake_tail_x_next = (clk) ? (snake_tail_x_reg + snake_tail_x_delta_int/*snake_tail_x_delta_reg*/) : (snake_tail_x_reg);
+//assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_int/*snake_tail_y_delta_reg*/) : (snake_tail_y_reg);
+
+// refer to ball movement bc its more similar
+// at each tick, update position; else, keep position same
+assign snake_head_x_next = (clk) ? (snake_head_x_reg + snake_head_x_delta_reg) : (snake_head_x_reg);
+assign snake_head_y_next = (clk) ? (snake_head_y_reg + snake_head_y_delta_reg) : (snake_head_y_reg);
+assign snake_tail_x_next = (clk) ? (snake_tail_x_reg + snake_tail_x_delta_reg) : (snake_tail_x_reg);
+assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_reg) : (snake_tail_y_reg);
 
     //note to self: add snake end
     // fix eaten??
@@ -395,5 +416,5 @@ always @* begin
         graph_rgb = 3'b100; // blue
     end
 end
-
+   
 endmodule

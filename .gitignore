@@ -106,3 +106,6 @@ Verilog_Snake/Verilog_Snake.xpr
 *.bat
 *.jou
 Verilog_Snake/Verilog_Snake.sim/sim_1/behav/xsim/xsim.dir/Char_test_behav/xsim.type
+*.type
+*.pb
+*.txt
