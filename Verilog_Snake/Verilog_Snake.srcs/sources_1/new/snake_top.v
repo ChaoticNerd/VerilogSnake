@@ -29,12 +29,13 @@ module snake_top(
     vga_sync vga(.clk(clk), .vga_h_sync(hsync), .vga_v_sync(vsync), .inDisplayArea(video_on), 
                 .CounterX(pix_x), .CounterY(pix_y), .clk_out(clk_out));
     
-    /*snake_graph_animate snake_graph (.clk(clk), .reset(reset), .eaten(eaten), .video_on(video_on),
+    snake_graph_animate snake_graph (.clk(clk), .reset(reset), .eaten(eaten), .video_on(video_on),
                                     .btn(btn) , .pix_x(pix_x),
-                                    .pix_y(pix_y), .graph_rgb(graph_rgb));
+                                    .pix_y(pix_y), .red(red), .blue(blue), .green(green));
                                     
     //snake_screen screen (.display(video_on), .x_val(pix_x), .y_val(pix_y), .screen_RGB(graph_rgb));       
-
+    /*
     snake_text text(.clk(clk), .pix_x(pix_X), .pix_y(pix_y),.text_on(text_on), .text_rgb());
     */
+    
 endmodule
