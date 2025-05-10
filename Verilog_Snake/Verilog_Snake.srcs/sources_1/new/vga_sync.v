@@ -13,50 +13,61 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module vga_sync(
-    input clk,
-    output vga_h_sync,
-    output vga_v_sync,
+    input clk, reset,
+    output h_sync,
+    output v_sync,
     output reg inDisplayArea,
-    output reg [9:0] CounterX,
-    output reg [9:0] CounterY,
+    output reg [9:0] h_counter,
+    output reg [9:0] v_counter,
     output reg clk_out
   );
-    reg vga_HS, vga_VS;
-    wire reset;
-    wire CounterXmaxed = (CounterX == 800); // 16 + 48 + 96 + 640
-    wire CounterYmaxed = (CounterY == 525); // 10 + 2 + 33 + 480
-
+   
     clk_dvdr clkdiv(.clk_in(clk), .rst(reset), .clk_div(clk_div));
+    reg [9:0] h_counter, v_counter;
     
-    always @(posedge clk_out)
-    if (CounterXmaxed)
-      CounterX <= 0;
-    else
-      CounterX <= CounterX + 1;
-
-    always @(posedge clk_out)
+    //640x480@60Hz, got param values out from http://www.tinyvga.com/vga-timing/640x480@60Hz
+    // Hsync
+    parameter H_DISPLAY = 640;
+    parameter H_FRONT = 16;
+    parameter H_SYNC = 96;
+    parameter H_BACK = 48;
+    parameter H_TOTAL = 800;
+    
+    // Vsync
+    parameter V_DISPLAY = 480;
+    parameter V_FRONT = 10;
+    parameter V_SYNC = 2;
+    parameter V_BACK = 33;
+    parameter V_TOTAL = 525;
+    // assigning sync pulse, when the waveform need to be 0
+    assign h_sync = ~(h_counter >= (H_DISPLAY + H_FRONT) && h_counter < (H_DISPLAY + H_FRONT + H_SYNC));             
+    assign v_sync = ~(v_counter >= (V_DISPLAY + V_FRONT) && v_counter < (V_DISPLAY + V_FRONT + V_SYNC));
+   
+    //assigning addressable video, (this would be the visible area) 
+     assign display = (h_counter < H_DISPLAY) && (v_counter < V_DISPLAY);
+    
+    
+    assign x = (h_counter < H_DISPLAY) ? h_counter : 10'd0;
+    assign y = (v_counter < V_DISPLAY) ? v_counter : 10'd0;
+    
+    
+    always @(posedge clk_div)
     begin
-      if (CounterXmaxed)
-      begin
-        if(CounterYmaxed)
-          CounterY <= 0;
-        else
-          CounterY <= CounterY + 1;
-      end
+        if (reset) begin
+            h_counter <= 0;
+            v_counter <= 0;
+        end
+        else begin
+            if (h_counter < H_TOTAL-1)
+                h_counter <= h_counter + 10'd1;
+            else begin
+                h_counter <= 0;
+                if (v_counter < V_TOTAL-1)
+                    v_counter <= v_counter + 10'd1;
+                else
+                    v_counter <= 0;
+            end
+        end
     end
-
-    always @(posedge clk_out)
-    begin
-      vga_HS <= (CounterX > (640 + 16) && (CounterX < (640 + 16 + 96)));   // active for 96 clocks
-      vga_VS <= (CounterY > (480 + 10) && (CounterY < (480 + 10 + 2)));   // active for 2 clocks
-    end
-
-    always @(posedge clk)
-    begin
-        inDisplayArea <= (CounterX < 640) && (CounterY < 480);
-    end
-
-    assign vga_h_sync = ~vga_HS;
-    assign vga_v_sync = ~vga_VS;
 
 endmodule

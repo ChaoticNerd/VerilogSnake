@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue May  6 21:30:28 2025
-| Host         : Eorzea running 64-bit major release  (build 9200)
+| Date         : Sat May 10 01:34:28 2025
+| Host         : Neptune running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file snake_top_timing_summary_routed.rpt -pb snake_top_timing_summary_routed.pb -rpx snake_top_timing_summary_routed.rpx -warn_on_violation
 | Design       : snake_top
 | Device       : 7a100t-csg324
@@ -39,11 +39,7 @@ Timing Summary Report
 | ------------------
 ------------------------------------------------------------------------------------------------
 
-Rule       Severity          Description                  Violations  
----------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  23          
-
-Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
 
 
 
@@ -51,12 +47,12 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (23)
+1. checking no_clock (0)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (66)
-5. checking no_input_delay (1)
-6. checking no_output_delay (2)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (0)
+6. checking no_output_delay (0)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
 9. checking loops (0)
@@ -64,9 +60,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (23)
--------------------------
- There are 23 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
 
 
 2. checking constant_clock (0)
@@ -79,23 +75,23 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (66)
--------------------------------------------------
- There are 66 pins that are not constrained for maximum delay. (HIGH)
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (1)
+5. checking no_input_delay (0)
 ------------------------------
- There is 1 input port with no input delay specified. (HIGH)
+ There are 0 input ports with no input delay specified.
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (2)
+6. checking no_output_delay (0)
 -------------------------------
- There are 2 ports with no output delay specified. (HIGH)
+ There are 0 ports with no output delay specified.
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -140,16 +136,20 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                   68          inf        0.000                      0                   68           NA           NA                      NA                    NA  
+         NA           NA                     NA                   NA           NA           NA                     NA                   NA           NA           NA                      NA                    NA  
 
 
-There are no user specified timing constraints.
+All user specified timing constraints are met.
 
 
 ------------------------------------------------------------------------------------------------
 | Clock Summary
 | -------------
 ------------------------------------------------------------------------------------------------
+
+Clock        Waveform(ns)       Period(ns)      Frequency(MHz)
+-----        ------------       ----------      --------------
+sys_clk_pin  {0.000 5.000}      10.000          100.000         
 
 
 ------------------------------------------------------------------------------------------------
@@ -195,414 +195,11 @@ Path Group    From Clock    To Clock
 
 Path Group    From Clock    To Clock    
 ----------    ----------    --------    
-(none)                                    
 
 
 ------------------------------------------------------------------------------------------------
 | Timing Details
 | --------------
 ------------------------------------------------------------------------------------------------
-
-
---------------------------------------------------------------------------------------
-Path Group:  (none)
-From Clock:  
-  To Clock:  
-
-Max Delay            68 Endpoints
-Min Delay            68 Endpoints
---------------------------------------------------------------------------------------
-
-
-Max Delay Paths
---------------------------------------------------------------------------------------
-Slack:                    inf
-  Source:                 text/vsync_unit/v_sync_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            vsync
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        6.215ns  (logic 4.083ns (65.704%)  route 2.131ns (34.296%))
-  Logic Levels:           2  (FDCE=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X2Y158         FDCE                         0.000     0.000 r  text/vsync_unit/v_sync_reg_reg/C
-    SLICE_X2Y158         FDCE (Prop_fdce_C_Q)         0.518     0.518 r  text/vsync_unit/v_sync_reg_reg/Q
-                         net (fo=1, routed)           2.131     2.649    vsync_OBUF
-    B12                  OBUF (Prop_obuf_I_O)         3.565     6.215 r  vsync_OBUF_inst/O
-                         net (fo=0)                   0.000     6.215    vsync
-    B12                                                               r  vsync (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_sync_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            hsync
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.398ns  (logic 3.072ns (56.906%)  route 2.326ns (43.094%))
-  Logic Levels:           2  (FDCE=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y178         FDCE                         0.000     0.000 r  text/vsync_unit/h_sync_reg_reg/C
-    SLICE_X1Y178         FDCE (Prop_fdce_C_Q)         0.456     0.456 r  text/vsync_unit/h_sync_reg_reg/Q
-                         net (fo=1, routed)           2.326     2.782    hsync_OBUF
-    D10                  OBUF (Prop_obuf_I_O)         2.616     5.398 r  hsync_OBUF_inst/O
-                         net (fo=0)                   0.000     5.398    hsync
-    D10                                                               r  hsync (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[3]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.919ns  (logic 0.842ns (21.482%)  route 3.077ns (78.518%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.164     3.919    text/vsync_unit/sel
-    SLICE_X2Y160         FDCE                                         r  text/vsync_unit/v_count_reg_reg[3]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[4]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.919ns  (logic 0.842ns (21.482%)  route 3.077ns (78.518%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.164     3.919    text/vsync_unit/sel
-    SLICE_X2Y160         FDCE                                         r  text/vsync_unit/v_count_reg_reg[4]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[8]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.919ns  (logic 0.842ns (21.482%)  route 3.077ns (78.518%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.164     3.919    text/vsync_unit/sel
-    SLICE_X2Y160         FDCE                                         r  text/vsync_unit/v_count_reg_reg[8]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[9]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.919ns  (logic 0.842ns (21.482%)  route 3.077ns (78.518%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.164     3.919    text/vsync_unit/sel
-    SLICE_X2Y160         FDCE                                         r  text/vsync_unit/v_count_reg_reg[9]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[0]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.870ns  (logic 0.842ns (21.757%)  route 3.028ns (78.243%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.115     3.870    text/vsync_unit/sel
-    SLICE_X2Y159         FDCE                                         r  text/vsync_unit/v_count_reg_reg[0]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[1]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.870ns  (logic 0.842ns (21.757%)  route 3.028ns (78.243%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.115     3.870    text/vsync_unit/sel
-    SLICE_X2Y159         FDCE                                         r  text/vsync_unit/v_count_reg_reg[1]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[2]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.870ns  (logic 0.842ns (21.757%)  route 3.028ns (78.243%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.115     3.870    text/vsync_unit/sel
-    SLICE_X2Y159         FDCE                                         r  text/vsync_unit/v_count_reg_reg[2]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/v_count_reg_reg[5]/CE
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        3.870ns  (logic 0.842ns (21.757%)  route 3.028ns (78.243%))
-  Logic Levels:           3  (FDCE=1 LUT5=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y177         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[1]/C
-    SLICE_X1Y177         FDCE (Prop_fdce_C_Q)         0.419     0.419 r  text/vsync_unit/h_count_reg_reg[1]/Q
-                         net (fo=5, routed)           0.882     1.301    text/vsync_unit/pixel_x[1]
-    SLICE_X1Y177         LUT5 (Prop_lut5_I1_O)        0.299     1.600 f  text/vsync_unit/h_count_reg[9]_i_2/O
-                         net (fo=6, routed)           1.032     2.631    text/vsync_unit/h_count_reg[9]_i_2_n_0
-    SLICE_X1Y178         LUT6 (Prop_lut6_I5_O)        0.124     2.755 r  text/vsync_unit/v_count_reg[9]_i_1/O
-                         net (fo=10, routed)          1.115     3.870    text/vsync_unit/sel
-    SLICE_X2Y159         FDCE                                         r  text/vsync_unit/v_count_reg_reg[5]/CE
-  -------------------------------------------------------------------    -------------------
-
-
-
-
-
-Min Delay Paths
---------------------------------------------------------------------------------------
-Slack:                    inf
-  Source:                 text/vsync_unit/h_count_reg_reg[9]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_sync_reg_reg/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.262ns  (logic 0.186ns (71.004%)  route 0.076ns (28.996%))
-  Logic Levels:           2  (FDCE=1 LUT6=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y178         FDCE                         0.000     0.000 r  text/vsync_unit/h_count_reg_reg[9]/C
-    SLICE_X0Y178         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/h_count_reg_reg[9]/Q
-                         net (fo=5, routed)           0.076     0.217    text/vsync_unit/pixel_x[9]
-    SLICE_X1Y178         LUT6 (Prop_lut6_I4_O)        0.045     0.262 r  text/vsync_unit/h_sync_reg_i_1/O
-                         net (fo=1, routed)           0.000     0.262    text/vsync_unit/h_sync_next
-    SLICE_X1Y178         FDCE                                         r  text/vsync_unit/h_sync_reg_reg/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[0]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.284ns  (logic 0.141ns (49.651%)  route 0.143ns (50.349%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.143     0.284    text/vsync_unit/pixel_tick
-    SLICE_X1Y177         FDCE                                         r  text/vsync_unit/h_count_reg_reg[0]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[1]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.284ns  (logic 0.141ns (49.651%)  route 0.143ns (50.349%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.143     0.284    text/vsync_unit/pixel_tick
-    SLICE_X1Y177         FDCE                                         r  text/vsync_unit/h_count_reg_reg[1]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[2]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.284ns  (logic 0.141ns (49.651%)  route 0.143ns (50.349%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.143     0.284    text/vsync_unit/pixel_tick
-    SLICE_X1Y177         FDCE                                         r  text/vsync_unit/h_count_reg_reg[2]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[3]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.284ns  (logic 0.141ns (49.651%)  route 0.143ns (50.349%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.143     0.284    text/vsync_unit/pixel_tick
-    SLICE_X1Y177         FDCE                                         r  text/vsync_unit/h_count_reg_reg[3]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[4]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.284ns  (logic 0.141ns (49.651%)  route 0.143ns (50.349%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.143     0.284    text/vsync_unit/pixel_tick
-    SLICE_X1Y177         FDCE                                         r  text/vsync_unit/h_count_reg_reg[4]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[5]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.330ns  (logic 0.141ns (42.668%)  route 0.189ns (57.332%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.189     0.330    text/vsync_unit/pixel_tick
-    SLICE_X0Y178         FDCE                                         r  text/vsync_unit/h_count_reg_reg[5]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[6]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.330ns  (logic 0.141ns (42.668%)  route 0.189ns (57.332%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.189     0.330    text/vsync_unit/pixel_tick
-    SLICE_X0Y178         FDCE                                         r  text/vsync_unit/h_count_reg_reg[6]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[7]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.330ns  (logic 0.141ns (42.668%)  route 0.189ns (57.332%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.189     0.330    text/vsync_unit/pixel_tick
-    SLICE_X0Y178         FDCE                                         r  text/vsync_unit/h_count_reg_reg[7]/CE
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 text/vsync_unit/mod2_reg_reg/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            text/vsync_unit/h_count_reg_reg[8]/CE
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.330ns  (logic 0.141ns (42.668%)  route 0.189ns (57.332%))
-  Logic Levels:           1  (FDCE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y177         FDCE                         0.000     0.000 r  text/vsync_unit/mod2_reg_reg/C
-    SLICE_X0Y177         FDCE (Prop_fdce_C_Q)         0.141     0.141 r  text/vsync_unit/mod2_reg_reg/Q
-                         net (fo=11, routed)          0.189     0.330    text/vsync_unit/pixel_tick
-    SLICE_X0Y178         FDCE                                         r  text/vsync_unit/h_count_reg_reg[8]/CE
-  -------------------------------------------------------------------    -------------------
-
-
-
 
 

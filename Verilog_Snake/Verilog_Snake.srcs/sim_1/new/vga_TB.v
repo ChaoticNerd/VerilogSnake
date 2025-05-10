@@ -16,28 +16,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module vga_TB();
-    reg clk_TB, reset_TB;
-    wire hsync_TB, vsync_TB, vid, p_tick;
+    reg clk_TB;
+    wire hsync_TB, vsync_TB, inDisplayArea;
     wire [9:0] ycnt;
     wire [9:0] xcnt;
+    reg clk_out;
     
-    vga_sync uut(.clk(clk_TB), .reset(reset_TB), .hsync(hsync_TB), 
-                 .vsync(vsync_TB), .video(vid), .p_tick(p_tick), 
-                 .pixel_y(ycnt), .pixel_x(xcnt));
+     vga_sync uut(.clk(clk_TB), .h_sync(hsync_TB), 
+                 .v_sync(vsync_TB), 
+                 .h_counter(ycnt), .v_counter(xcnt), .clk_out(clk_out));
+                 
     always #1 clk_TB <= ~clk_TB; // one cycle is 2
     
     localparam period = 5;
     
     initial begin
         clk_TB = 0;
-        reset_TB = 1;
+        
         #1;
-        reset_TB = 0;
     end  
     always @(posedge clk_TB) begin
-        #period;
-        // Never reaches vsync
-        if(vsync_TB)
-            $display("REACHED VSYNC");      
+        #period;   
     end     
 endmodule

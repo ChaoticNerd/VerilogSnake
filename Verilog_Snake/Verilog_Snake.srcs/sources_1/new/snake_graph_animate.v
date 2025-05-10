@@ -29,7 +29,9 @@ module snake_graph_animate(
         input wire [9:0] pix_x,
         input wire [9:0] pix_y,
         
-        output reg [2:0] graph_rgb
+        output reg [2:0] red,
+        output reg [2:0] blue,
+        output reg [2:0] green
     );
 // note: you haven't actually added collision = end yet
 
@@ -106,7 +108,7 @@ reg [9:0] turn_x_temp, turn_y_temp;
                        (RIGHT_BORDER_L <= pix_x) && (pix_x <= RIGHT_BORDER_R) &&
                        (TOP_BORDER_T   <= pix_y) && (pix_y <= TOP_BORDER_B)   &&
                        (BOT_BORDER_T   <= pix_y) && (pix_y <= BOT_BORDER_B);
-    assign border_RGB = 3'b111; // WHITE
+    //assign border_RGB = 3'b111; // WHITE
 
 // update position every clk cycle, or reset all positions
 // this whole thing isn't running
@@ -400,20 +402,30 @@ always @* begin
     //snake_head_on = ((snake_head_x_reg == pix_x) && (snake_head_y_reg == pix_y));
     snake_on = (snake_head_on || snake_tail_on || snake_parts[31] || snake_parts[30] || snake_parts[29] || snake_parts[28] || snake_parts[26] || snake_parts[25] || snake_parts[24] || snake_parts[23] || snake_parts[22] || snake_parts[21] || snake_parts[20] || snake_parts[19] || snake_parts[18] || snake_parts[17] || snake_parts[16] || snake_parts[15] || snake_parts[14] || snake_parts[13] || snake_parts[12] || snake_parts[11] || snake_parts[10] || snake_parts[9] || snake_parts[8] || snake_parts[7] || snake_parts[6] || snake_parts[5] || snake_parts[4] || snake_parts[3] || snake_parts[2] || snake_parts[1] || snake_parts[0]);
     fruit_on = ((apple_x == pix_x) && (apple_y == pix_y));
-    if (~video_on) begin
-        graph_rgb = 3'b000; // off
+    if (~video_on) begin // WHITE
+        red = 4'b1111;
+        blue = 4'b1111;
+        green = 4'b1111;
     end
-    else if (snake_on) begin
-        graph_rgb = 3'b010; // green?
+    else if (snake_on) begin   // GREEN
+        red = 4'b0000;
+        blue = 4'b0000;
+        green = 4'b1111;
     end
     else if (fruit_on) begin
-        graph_rgb = 3'b001; // red
+        red = 4'b1111;
+        blue = 4'b0000;
+        green = 4'b0000;
     end
     else if (border_on) begin
-        graph_rgb = border_RGB;
+        red = 4'b0000;
+        blue = 4'b0000;
+        green = 4'b0000;
     end
     else begin
-        graph_rgb = 3'b100; // blue
+        red = 4'b0000;
+        blue = 4'b1111;
+        green = 4'b0000;
     end
 end
    

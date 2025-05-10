@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/PugWomp/Documents/Github/VerilogSnake/Verilog_Snake/Verilog_Snake.runs/synth_1'
+HD_PWD='C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
