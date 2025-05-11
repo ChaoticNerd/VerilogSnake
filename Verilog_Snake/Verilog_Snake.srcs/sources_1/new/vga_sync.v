@@ -18,13 +18,9 @@ module vga_sync(
     output v_sync,
     output reg inDisplayArea,
     output reg [9:0] h_counter,
-    output reg [9:0] v_counter,
-    output reg clk_out
+    output reg [9:0] v_counter
   );
-   
-    clk_dvdr clkdiv(.clk_in(clk), .rst(reset), .clk_div(clk_div));
-    reg [9:0] h_counter, v_counter;
-    
+       
     //640x480@60Hz, got param values out from http://www.tinyvga.com/vga-timing/640x480@60Hz
     // Hsync
     parameter H_DISPLAY = 640;
@@ -51,7 +47,7 @@ module vga_sync(
     assign y = (v_counter < V_DISPLAY) ? v_counter : 10'd0;
     
     
-    always @(posedge clk_div)
+    always @(posedge clk)
     begin
         if (reset) begin
             h_counter <= 0;

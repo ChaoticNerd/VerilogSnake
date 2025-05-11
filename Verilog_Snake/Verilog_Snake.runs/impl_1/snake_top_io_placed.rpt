@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date                      : Sat May 10 01:34:05 2025
+| Date                      : Sat May 10 20:52:13 2025
 | Host                      : Neptune running 64-bit major release  (build 9200)
 | Command                   : report_io -file snake_top_io_placed.rpt
 | Design                    : snake_top
@@ -109,7 +109,7 @@ Table of Contents
 | D18        |             | High Range | IO_L21N_T3_DQS_A18_15        | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | E1         |             | High Range | IO_L18N_T2_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | E2         |             | High Range | IO_L14P_T2_SRCC_35           | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| E3         | clk_out     | High Range | IO_L12P_T1_MRCC_35           | OUTPUT      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| E3         | clk         | High Range | IO_L12P_T1_MRCC_35           | INPUT       | LVCMOS33    |      35 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | E4         |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | E5         |             | High Range | IO_L5N_T0_AD13N_35           | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | E6         |             | High Range | IO_L5P_T0_AD13P_35           | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |

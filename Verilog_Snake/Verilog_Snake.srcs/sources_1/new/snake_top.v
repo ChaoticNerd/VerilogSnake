@@ -13,23 +13,24 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module snake_top(
-    input reset,
+    input clk, reset,
     input [0:3] btn,
     output hsync, vsync,
-    output [0:3] red, green, blue,
-    output clk_out
+    output [0:3] red, green, blue
     );
-    wire clk;
-    wire video_on, eaten;
+    wire video_on, eaten, clk_div;
     wire [9:0] pix_x, pix_y;
     wire [3:0] text_on;
     wire [3:0] r, g, b;
+    
+    clk_dvdr clkdiv(.clk_in(clk), .rst(reset), .clk_div(clk_div));
+    
     //apple_spawn e(.eaten(eaten), .x_pix(apple_x), .y_pix(apple_y));
     // another variable to connect apple_x and apple_y to snake_graph_animate
-    vga_sync vga(.clk(clk), .reset(reset), .h_sync(hsync), .v_sync(vsync), .inDisplayArea(video_on), 
-                .h_counter(pix_x), .v_counter(pix_y), .clk_out(clk_out));
+    vga_sync vga(.clk(clk_div), .reset(reset), .h_sync(hsync), .v_sync(vsync), .inDisplayArea(video_on), 
+                .h_counter(pix_x), .v_counter(pix_y));
     
-    snake_graph_animate snake_graph (.clk(clk_out), .reset(reset), .eaten(eaten), .video_on(video_on),
+    snake_graph_animate snake_graph (.clk(clk_div), .reset(reset), .eaten(eaten), .video_on(video_on),
                                     .btn(btn) , .pix_x(pix_x), .pix_y(pix_y), 
                                     .red(red), .blue(blue), .green(green));
                                     
