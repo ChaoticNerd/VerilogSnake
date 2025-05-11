@@ -149,9 +149,10 @@ reg [3:0] direction = 4'b0010; // bit 0 is up, bit 1 is right, bit 2 is down, bi
 localparam SNAKE_PV = 1;
 localparam SNAKE_0V = 0;
 localparam SNAKE_NV = -1;
-reg snake_head_x_delta_next, snake_head_y_delta_next, snake_tail_x_delta_next, snake_tail_y_delta_next; // next snake head/tail velocity
-reg snake_head_x_delta_reg = SNAKE_PV, snake_head_y_delta_reg = SNAKE_0V; // current snake head velocity
-reg snake_tail_x_delta_reg = SNAKE_PV, snake_tail_y_delta_reg = SNAKE_0V; // current snake tail velocity
+// ORIGINALLY ALL REG
+integer snake_head_x_delta_next, snake_head_y_delta_next, snake_tail_x_delta_next, snake_tail_y_delta_next; // next snake head/tail velocity
+integer snake_head_x_delta_reg = SNAKE_PV, snake_head_y_delta_reg = SNAKE_0V; // current snake head velocity
+integer snake_tail_x_delta_reg = SNAKE_PV, snake_tail_y_delta_reg = SNAKE_0V; // current snake tail velocity
 
 // check if game has ended
 integer game_end = 0;
