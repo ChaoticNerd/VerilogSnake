@@ -17,13 +17,16 @@ module clk_dvdr(
     input clk_in, rst,
     output reg clk_div
     );
-    integer count = 0;
-    always @ (posedge(clk_in), posedge(rst))
-    begin
-        if (rst) clk_div <= 0;
-        else if(count == 3)begin 
-            clk_div <= !clk_div;
-            count = 0;
-        end else count = count + 1;
-    end
+    
+	reg pulse;
+	
+	initial begin // Set all of them initially to 0
+		clk_div = 0;
+		pulse = 0;
+	end
+	
+	always @(posedge clk_in)
+		pulse = ~pulse;
+	always @(posedge pulse)
+		clk_div = ~clk_div;
 endmodule

@@ -140,7 +140,8 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.runs/synth_1/snake_top.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/mavri/Downloads/NexysA7-100t.xdc
+  read_xdc C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/constrs_1/NexysA7-100t.xdc
+  read_xdc C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/constrs_1/VGA_TOP_CONSTRAINT.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

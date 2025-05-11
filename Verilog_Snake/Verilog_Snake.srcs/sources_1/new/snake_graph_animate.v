@@ -396,7 +396,7 @@ assign snake_tail_y_next = (clk) ? (snake_tail_y_reg + snake_tail_y_delta_reg) :
     end
 
 // so THIS runs...
-always @* begin
+always @(posedge clk) begin
     //snake_head_x_reg = 320;
     //snake_head_y_reg = 240;
     //snake_head_on = ((snake_head_x_reg == pix_x) && (snake_head_y_reg == pix_y));
@@ -413,7 +413,7 @@ always @* begin
         green = 4'b1111;
     end
     else if (fruit_on) begin
-        red = 4'b1111;
+        red = 4'b0000;
         blue = 4'b0000;
         green = 4'b0000;
     end

@@ -89,8 +89,6 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/clk_dvdr.v
-  C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v
   C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v
   C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v
 }
@@ -103,8 +101,11 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/mavri/Downloads/NexysA7-100t.xdc
-set_property used_in_implementation false [get_files C:/Users/mavri/Downloads/NexysA7-100t.xdc]
+read_xdc C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/constrs_1/NexysA7-100t.xdc
+set_property used_in_implementation false [get_files C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/constrs_1/NexysA7-100t.xdc]
+
+read_xdc C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/constrs_1/VGA_TOP_CONSTRAINT.xdc
+set_property used_in_implementation false [get_files C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/constrs_1/VGA_TOP_CONSTRAINT.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
