@@ -21,9 +21,8 @@ module snake_top(
     wire video_on, eaten;
     wire [9:0] pix_x, pix_y;
     wire [3:0] text_on;
-    reg [3:0] r, g, b;
-    integer i;
-    //clk_dvdr clkdiv(.clk_in(clk), .rst(reset), .clk_div(clk_div));
+    wire [12:0] rgb;
+    clk_dvdr clkdiv(.clk_in(clk), .rst(reset), .clk_div(clk_div));
     
     // another variable to connect apple_x and apple_y to snake_graph_animate
     vga_sync vga(.clk(clk), .hSync(hsync), .vSync(vsync), .bright(video_on), 
@@ -41,15 +40,16 @@ module snake_top(
 //            end
 //        end
 //    end
-    /*snake_graph_animate snake_graph (.clk(clk_div), .reset(reset), .eaten(eaten), .video_on(video_on),
+    snake_graph_animate snake_graph (.clk(clk_div), .reset(reset), .eaten(eaten), .video_on(video_on),
                                     .btn(btn) , .pix_x(pix_x), .pix_y(pix_y), 
-                                    .red(r), .blue(b), .green(g));
-                  */                 
+                                    .rgb(rgb));
+                                 
     //snake_screen screen (.display(video_on), .x_val(pix_x), .y_val(pix_y), .screen_RGB(graph_rgb));       
-    
-    //snake_text text(.clk(clk), .pix_x(pix_X), .pix_y(pix_y),.text_on(text_on), .text_rgb());
+
+    //assign {red,green,blue} = video_on ? rgb[3:0] : 0;
+    //snake_text text(.clk(clk_div), .pix_x(pix_X), .pix_y(pix_y),.text_on(text_on), .text_rgb());
     // Connect game output to VGA output
-    assign red      = video_on;
-    assign green    = video_on;
-    assign blue     = video_on;
+    assign red      = video_on? rgb[3:0]: 0;
+    assign green    = video_on? rgb[7:4]: 0;
+    assign blue     = video_on? rgb[11:8]: 0;
 endmodule

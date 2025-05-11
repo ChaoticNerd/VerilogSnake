@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Sun May 11 15:43:37 2025
+| Date             : Sun May 11 16:57:44 2025
 | Host             : Neptune running 64-bit major release  (build 9200)
 | Command          : report_power -file snake_top_power_routed.rpt -pb snake_top_power_summary_routed.pb -rpx snake_top_power_routed.rpx
 | Design           : snake_top
@@ -53,11 +53,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |       71 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       25 |     63400 |            0.04 |
-|   Register     |    <0.001 |       30 |    126800 |            0.02 |
-|   Others       |     0.000 |        3 |       --- |             --- |
-| Signals        |    <0.001 |       48 |       --- |             --- |
+| Slice Logic    |    <0.001 |       90 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       39 |     63400 |            0.06 |
+|   Register     |    <0.001 |       28 |    126800 |            0.02 |
+|   CARRY4       |    <0.001 |        2 |     15850 |            0.01 |
+|   Others       |     0.000 |        7 |       --- |             --- |
+| Signals        |    <0.001 |       49 |       --- |             --- |
 | I/O            |    <0.001 |       15 |       210 |            7.14 |
 | Static Power   |     0.097 |          |           |                 |
 | Total          |     0.098 |          |           |                 |
