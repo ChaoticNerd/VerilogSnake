@@ -49,7 +49,7 @@ module snake_top(
     //assign {red,green,blue} = video_on ? rgb[3:0] : 0;
     //snake_text text(.clk(clk_div), .pix_x(pix_X), .pix_y(pix_y),.text_on(text_on), .text_rgb());
     // Connect game output to VGA output
-    assign red      = video_on? rgb[3:0]: 0;
+    assign blue      = video_on? rgb[3:0]: 0;
     assign green    = video_on? rgb[7:4]: 0;
-    assign blue     = video_on? rgb[11:8]: 0;
+    assign red     = video_on? rgb[11:8]: 0;
 endmodule
