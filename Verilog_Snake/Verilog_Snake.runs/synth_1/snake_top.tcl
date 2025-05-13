@@ -89,8 +89,10 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
+  C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/Font_ROM.v
   C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/clk_dvdr.v
   C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v
+  C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v
   C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v
   C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v
 }

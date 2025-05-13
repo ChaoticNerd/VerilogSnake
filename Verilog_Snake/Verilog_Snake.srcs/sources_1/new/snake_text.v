@@ -22,10 +22,11 @@
 
 module snake_text(
     input wire clk,
-    input wire [3:0] dig0, dig1, dig2, hidig0, hidig1, hidig2,
+    input [11:0]score, 
+    input [11:0]hi_score,
     input wire [9:0] pix_x, pix_y,
-    output wire [3:0] text_on,
-    output reg [2:0] text_rgb
+    output wire [4:0] text_on,
+    output reg [11:0] text_rgb
     );
     
    wire [10:0] rom_addr; // this is the address that will be sent to font rom,
@@ -37,6 +38,12 @@ module snake_text(
    wire [7:0] font_word;
    wire font_bit, score_on, logo_on, rule_on, over_on, hiscoreres_on, scoreres_on ;
    wire [7:0] rule_rom_addr, score_rom_addr;
+    
+    
+   reg[3:0] dig0, dig1, dig2, hidig0, hidig1, hidig2;
+   reg [11:0] bi_score, bi_hi_score;
+   
+   
     
    Font_ROM font_unit(.clk(clk), .addr(rom_addr), .data(font_word));
    
@@ -185,23 +192,29 @@ module snake_text(
    // 
    // MUX for font rom adr and rgb
    //
-   always @* begin
-        text_rgb = 3'b000;
+   always @* begin 
+        dig0 <= score[3:0];
+        dig1 <= score[7:4];
+        dig2 <= score[11:8];
+        hidig0 <= hi_score[3:0];
+        hidig1 <= hi_score[7:4];
+        hidig2 <= hi_score[11:8];
+        text_rgb = 12'b1111_1111_1111;
         if (score_on)
             begin
                 char_addr = char_addr_s;
                 row_addr = row_addr_s;
                 bit_addr = bit_addr_s;
                 if (font_bit)
-                    text_rgb = 3'b001;
-            end
+                    text_rgb = 12'b0000_0000_1111;
+             end
         else if (logo_on)
             begin
                 char_addr = char_addr_s;
                 row_addr = row_addr_s;
                 bit_addr = bit_addr_s;
                 if (font_bit)
-                    text_rgb = 3'b001;
+                    text_rgb = 12'b0000_1111_0000;
             end
         else if (over_on)
             begin
@@ -209,7 +222,7 @@ module snake_text(
                 row_addr = row_addr_s;
                 bit_addr = bit_addr_s;
                 if (font_bit)
-                    text_rgb = 3'b001;
+                    text_rgb = 12'b1111_0000_0000;
             end
         else if (scoreres_on)
             begin
@@ -217,7 +230,7 @@ module snake_text(
                 row_addr = row_addr_sr;
                 bit_addr = bit_addr_sr;
                 if (font_bit)
-                    text_rgb = 3'b001;
+                    text_rgb = 12'b0000_0000_1111;
             end
         else if (hiscoreres_on)
             begin
@@ -225,7 +238,7 @@ module snake_text(
                 row_addr = row_addr_hsr;
                 bit_addr = bit_addr_hsr;
                 if (font_bit)
-                    text_rgb = 3'b001;
+                    text_rgb = 12'b0000_0000_1111;
             end
         end
 

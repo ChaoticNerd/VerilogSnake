@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Sun May 11 23:14:11 2025
-# Process ID: 262768
+# Start of session at: Mon May 12 14:17:35 2025
+# Process ID: 269136
 # Current directory: C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.runs/synth_1
 # Command line: vivado.exe -log snake_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source snake_top.tcl
 # Log file: C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.runs/synth_1/snake_top.vds
@@ -23,44 +23,57 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 190108
+INFO: [Synth 8-7075] Helper process launched with PID 236712
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
-INFO: [Synth 8-11241] undeclared symbol 'clk_div', assumed default net type 'wire' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:25]
+INFO: [Synth 8-11241] undeclared symbol 'row_addr_1', assumed default net type 'wire' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:99]
+INFO: [Synth 8-11241] undeclared symbol 'bit_addr_1', assumed default net type 'wire' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:100]
+INFO: [Synth 8-11241] undeclared symbol 'clk_div', assumed default net type 'wire' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:37]
+INFO: [Synth 8-11241] undeclared symbol 'pix_X', assumed default net type 'wire' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:59]
+INFO: [Synth 8-11241] undeclared symbol 'text_rbg', assumed default net type 'wire' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:59]
+INFO: [Synth 8-11241] undeclared symbol 'rgb_vga', assumed default net type 'wire' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:138]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1211.773 ; gain = 408.422
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1213.965 ; gain = 408.082
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'snake_top' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:15]
 INFO: [Synth 8-6157] synthesizing module 'clk_dvdr' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/clk_dvdr.v:16]
 INFO: [Synth 8-6155] done synthesizing module 'clk_dvdr' (0#1) [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/clk_dvdr.v:16]
 INFO: [Synth 8-6157] synthesizing module 'vga_sync' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v:24]
 INFO: [Synth 8-6155] done synthesizing module 'vga_sync' (0#1) [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/vga_sync.v:24]
-INFO: [Synth 8-6157] synthesizing module 'snake_graph_animate' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:22]
-WARNING: [Synth 8-6090] variable 'eaten' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:325]
-INFO: [Synth 8-6155] done synthesizing module 'snake_graph_animate' (0#1) [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:22]
-WARNING: [Synth 8-689] width (13) of port connection 'rgb' does not match port width (12) of module 'snake_graph_animate' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:45]
+INFO: [Synth 8-6157] synthesizing module 'snake_graph_animate' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:1]
+WARNING: [Synth 8-324] index 20 out of range [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:66]
+INFO: [Synth 8-6155] done synthesizing module 'snake_graph_animate' (0#1) [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:1]
+WARNING: [Synth 8-689] width (13) of port connection 'rgb' does not match port width (12) of module 'snake_graph_animate' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:57]
+INFO: [Synth 8-6157] synthesizing module 'snake_text' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Font_ROM' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/Font_ROM.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'Font_ROM' (0#1) [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/Font_ROM.v:24]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:58]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:102]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:144]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:172]
+INFO: [Synth 8-6155] done synthesizing module 'snake_text' (0#1) [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'score' does not match port width (12) of module 'snake_text' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:59]
+WARNING: [Synth 8-689] width (32) of port connection 'hi_score' does not match port width (12) of module 'snake_text' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:59]
+WARNING: [Synth 8-689] width (1) of port connection 'text_rgb' does not match port width (12) of module 'snake_text' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:59]
+WARNING: [Synth 8-324] index 5 out of range [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:127]
 INFO: [Synth 8-6155] done synthesizing module 'snake_top' (0#1) [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:15]
-WARNING: [Synth 8-6014] Unused sequential element turns1x_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:129]
-WARNING: [Synth 8-6014] Unused sequential element turns1y_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:130]
-WARNING: [Synth 8-6014] Unused sequential element turns2x_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:131]
-WARNING: [Synth 8-6014] Unused sequential element turns2y_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:132]
-WARNING: [Synth 8-6014] Unused sequential element turns1x_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:196]
-WARNING: [Synth 8-6014] Unused sequential element turns1y_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:197]
-WARNING: [Synth 8-6014] Unused sequential element turns2x_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:198]
-WARNING: [Synth 8-6014] Unused sequential element turns2y_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:199]
+WARNING: [Synth 8-6014] Unused sequential element rgb_reg_reg was removed.  [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:73]
+WARNING: [Synth 8-3848] Net pix_X in module/entity snake_top does not have driver. [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:59]
+WARNING: [Synth 8-7129] Port pix_x[0] in module snake_text is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pix_y[0] in module snake_text is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rst in module clk_dvdr is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1325.277 ; gain = 521.926
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1316.355 ; gain = 510.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1325.277 ; gain = 521.926
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1316.355 ; gain = 510.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1325.277 ; gain = 521.926
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1316.355 ; gain = 510.473
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1325.277 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1316.355 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -75,52 +88,82 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/snake_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1386.383 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1378.809 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1386.383 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1378.809 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'snake_top'
+WARNING: [Synth 8-327] inferring latch for variable 'bit_addr_reg' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:207]
+WARNING: [Synth 8-327] inferring latch for variable 'row_addr_reg' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:206]
+WARNING: [Synth 8-327] inferring latch for variable 'char_addr_reg' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:205]
+WARNING: [Synth 8-327] inferring latch for variable 'char_addr_hsr_reg' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:174]
+WARNING: [Synth 8-327] inferring latch for variable 'char_addr_s_reg' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_text.v:60]
+WARNING: [Synth 8-327] inferring latch for variable 'score_reg' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_top.v:59]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   title |                               00 |                               00
+                    game |                               01 |                               01
+                    over |                               10 |                               11
+                   apple |                               11 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'snake_top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   10 Bit       Adders := 10    
-	   3 Input    5 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   20 Bit       Adders := 2     
+	   2 Input   10 Bit       Adders := 6     
 +---Registers : 
+	               32 Bit    Registers := 4     
+	               20 Bit    Registers := 20    
+	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 2     
-	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 7     
+	                1 Bit    Registers := 6     
++---ROMs : 
+	                    ROMs := 1     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 80    
-	   5 Input   12 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 2     
+	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   20 Bit        Muxes := 18    
+	   5 Input   12 Bit        Muxes := 2     
 	   2 Input   10 Bit        Muxes := 2     
-	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 2     
+	  32 Input    7 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 3     
-	   2 Input    1 Bit        Muxes := 197   
-	   5 Input    1 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 26    
+	  16 Input    1 Bit        Muxes := 1     
+	  32 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -137,28 +180,256 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[9]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[8]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[7]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[6]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[5]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[1]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[0]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:57]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[9]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[8]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[7]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[6]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[5]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[1]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[0]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:56]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[31]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[30]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[29]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[28]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[27]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[26]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[25]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[24]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[23]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[22]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[21]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[20]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[19]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[18]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[17]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[16]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[15]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[14]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[13]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[12]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[11]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[10]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[9]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[8]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[7]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[6]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[5]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'snake_graph/length_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+WARNING: [Synth 8-3332] Sequential element (text/bit_addr_reg[2]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/bit_addr_reg[1]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/bit_addr_reg[0]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/row_addr_reg[3]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/row_addr_reg[2]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/row_addr_reg[1]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/row_addr_reg[0]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_reg[6]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_reg[5]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_reg[4]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_reg[3]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_reg[2]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_reg[1]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_reg[0]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_hsr_reg[6]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_hsr_reg[5]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_hsr_reg[4]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_hsr_reg[3]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_hsr_reg[2]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_hsr_reg[1]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_hsr_reg[0]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_s_reg[6]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_s_reg[5]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_s_reg[4]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_s_reg[3]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_s_reg[2]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_s_reg[1]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (text/char_addr_s_reg[0]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[31]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[30]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[29]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[28]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[27]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[26]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[25]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[24]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[23]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[22]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[21]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[20]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[19]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[18]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[17]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[16]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[15]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[14]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[13]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[12]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[11]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[10]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[9]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[8]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[7]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[6]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[5]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[4]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[3]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[2]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[1]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (score_reg[0]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg_reg[1]) is unused and will be removed from module snake_top.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg_reg[0]) is unused and will be removed from module snake_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1378.809 ; gain = 572.926
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+-----------------------------+---------------+----------------+
+|Module Name | RTL Object                  | Depth x Width | Implemented As | 
++------------+-----------------------------+---------------+----------------+
+|snake_top   | text/font_unit/addr_reg_reg | 2048x8        | Block RAM      | 
++------------+-----------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'sys_clk_pin'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5966] Removing register instance (\snake_graph/FRUIT_X_REG_reg[0] ) from module (snake_top) as it has self-loop and (\snake_graph/FRUIT_X_REG_reg[0]__0 ) is actual driver [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
+INFO: [Synth 8-5966] Removing register instance (\snake_graph/length_reg[1]__0 ) from module (snake_top) as it has self-loop and (\snake_graph/length_reg[1] ) is actual driver [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
+INFO: [Synth 8-5966] Removing register instance (\snake_graph/length_reg[0]__0 ) from module (snake_top) as it has self-loop and (\snake_graph/length_reg[0] ) is actual driver [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:46]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -176,145 +447,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[9] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[9]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[9] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[9]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[8] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[8]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[8] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[8]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[7] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[7]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[7] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[7]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[6] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[6]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[6] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[6]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[5] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[5]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[5] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[5]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[4] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[4] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[4]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[3] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[3] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[3]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[2] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[2] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[2]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[1] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[1]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[1] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[1]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[0] with 1st driver pin 'snake_graph/FRUIT_Y_REG_reg[0]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:126]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_Y_REG[0] with 2nd driver pin 'snake_graph/FRUIT_Y_REG_reg[0]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[9] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[9]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[9] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[9]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[8] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[8]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[8] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[8]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[7] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[7]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[7] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[7]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[6] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[6]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[6] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[6]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[5] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[5]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[5] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[5]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[4] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[4]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[4] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[3] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[3]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[3] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[2] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[2]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[2] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[1] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[1]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[1] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[1]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[0] with 1st driver pin 'snake_graph/snake_head_y_reg_reg[0]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:298]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_y_reg[0] with 2nd driver pin 'snake_graph/snake_head_y_reg_reg[0]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[9] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[9]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[9] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[9]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[8] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[8]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[8] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[8]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[7] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[7]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[7] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[7]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[6] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[6]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[6] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[6]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[5] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[5]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[5] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[5]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[4] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[4] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[4]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[3] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[3] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[3]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[2] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[2] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[2]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[1] with 1st driver pin 'snake_graph/FRUIT_X_REG_reg[1]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:125]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/FRUIT_X_REG[1] with 2nd driver pin 'snake_graph/FRUIT_X_REG_reg[1]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:305]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[9] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[9]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[9] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[9]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[8] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[8]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[8] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[8]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[7] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[7]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[7] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[7]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[6] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[6]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[6] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[6]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[5] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[5]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[5] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[5]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[4] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[4]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[4] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[3] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[3]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[3] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[2] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[2]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[2] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[1] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[1]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[1] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[1]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[0] with 1st driver pin 'snake_graph/snake_head_x_reg_reg[0]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_head_x_reg[0] with 2nd driver pin 'snake_graph/snake_head_x_reg_reg[0]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:121]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[1] with 1st driver pin 'snake_graph/turns_reg[1]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[1] with 2nd driver pin 'snake_graph/turns_reg[1]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:91]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[29] with 1st driver pin 'snake_graph/snake_parts_reg[29]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:141]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[29] with 2nd driver pin 'snake_graph/snake_parts_reg[29]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:204]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[3] with 1st driver pin 'snake_graph/turns_reg[3]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[3] with 2nd driver pin 'snake_graph/turns_reg[3]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:91]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[28] with 1st driver pin 'snake_graph/snake_parts_reg[28]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:141]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[28] with 2nd driver pin 'snake_graph/snake_parts_reg[28]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:204]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[4] with 1st driver pin 'snake_graph/turns_reg[4]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[4] with 2nd driver pin 'snake_graph/turns_reg[4]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:91]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[2] with 1st driver pin 'snake_graph/turns_reg[2]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:297]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/turns[2] with 2nd driver pin 'snake_graph/turns_reg[2]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:91]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[26] with 1st driver pin 'snake_graph/snake_parts_reg[26]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:141]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[26] with 2nd driver pin 'snake_graph/snake_parts_reg[26]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:204]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[25] with 1st driver pin 'snake_graph/snake_parts_reg[25]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:141]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[25] with 2nd driver pin 'snake_graph/snake_parts_reg[25]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:204]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[24] with 1st driver pin 'snake_graph/snake_parts_reg[24]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:141]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[24] with 2nd driver pin 'snake_graph/snake_parts_reg[24]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:204]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[23] with 1st driver pin 'snake_graph/snake_parts_reg[23]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:141]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[23] with 2nd driver pin 'snake_graph/snake_parts_reg[23]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:204]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[22] with 1st driver pin 'snake_graph/snake_parts_reg[22]__0/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:141]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin snake_graph/snake_parts[22] with 2nd driver pin 'snake_graph/snake_parts_reg[22]/Q' [C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.srcs/sources_1/new/snake_graph_animate.v:204]
-INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|      755|Failed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -330,42 +493,42 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     3|
-|2     |CARRY4 |   594|
-|3     |LUT1   |     7|
-|4     |LUT2   |    99|
-|5     |LUT3   |   102|
-|6     |LUT4   |  2845|
-|7     |LUT5   |   508|
-|8     |LUT6   |   673|
-|9     |MUXF7  |    54|
-|10    |MUXF8  |     1|
-|11    |FDRE   |  1549|
+|1     |BUFG   |     2|
+|2     |CARRY4 |    50|
+|3     |LUT1   |     8|
+|4     |LUT2   |    57|
+|5     |LUT3   |   118|
+|6     |LUT4   |    23|
+|7     |LUT5   |    13|
+|8     |LUT6   |    33|
+|9     |FDCE   |    24|
+|10    |FDPE   |    10|
+|11    |FDRE   |    36|
 |12    |IBUF   |     6|
 |13    |OBUF   |    14|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1510 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:49 . Memory (MB): peak = 1386.383 ; gain = 521.926
-Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 1386.383 ; gain = 583.031
+Synthesis finished with 0 errors, 150 critical warnings and 70 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1378.809 ; gain = 510.473
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1378.809 ; gain = 572.926
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1392.332 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 649 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1378.809 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 50 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1396.160 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1378.809 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: d7feae7b
+Synth Design complete, checksum: a1c4c6d
 INFO: [Common 17-83] Releasing license: Synthesis
-35 Infos, 13 Warnings, 100 Critical Warnings and 0 Errors encountered.
+51 Infos, 81 Warnings, 150 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 1396.160 ; gain = 985.859
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1378.809 ; gain = 968.344
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/mavri/Documents/GitHub/VerilogSnake/Verilog_Snake/Verilog_Snake.runs/synth_1/snake_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file snake_top_utilization_synth.rpt -pb snake_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May 11 23:15:18 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon May 12 14:18:13 2025...
